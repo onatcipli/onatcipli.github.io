@@ -11,6 +11,8 @@ class DesktopView extends StatefulWidget {
 class _DesktopViewState extends State<DesktopView> {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -27,21 +29,52 @@ class _DesktopViewState extends State<DesktopView> {
                 children: <Widget>[
                   Expanded(
                     flex: 1,
-                    child: CustomPaint(
-                      painter: PaintTriangel(backgroundColor: backgroundColor),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: NetworkImage(cardBackgroundImageUrl),
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: <Widget>[
+                        CustomPaint(
+                          foregroundPainter:
+                              PaintTriangle(backgroundColor: backgroundColor),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(cardBackgroundImageUrl),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        Container(
+                          height: width / 8,
+                          width: width / 8,
+                          child: CircleAvatar(
+                            backgroundColor: Theme.of(context).cardColor,
+                            backgroundImage: NetworkImage(profileImageUrl),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   Expanded(
                     flex: 1,
-                    child: Text('adasdas'),
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Onat Çipli',
+                            style: Theme.of(context).textTheme.title,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Mobile Developer',
+                            style: Theme.of(context).textTheme.body2,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
 
-class PaintTriangel extends CustomPainter {
+class PaintTriangle extends CustomPainter {
   final Color backgroundColor;
 
-  PaintTriangel({
+  PaintTriangle({
     @required this.backgroundColor,
   });
 

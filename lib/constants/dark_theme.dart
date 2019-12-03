@@ -12,6 +12,7 @@ Color bodyTextColor = Color(0xff7F7F85);
 Color activeTextColor = Color(0xff6DB364);
 
 ThemeData darkTheme = ThemeData(
+  hoverColor: hoverIconColor,
   backgroundColor: backgroundColor,
   scaffoldBackgroundColor: backgroundColor,
   cardColor: cardBackgroundColor,
@@ -21,9 +22,13 @@ ThemeData darkTheme = ThemeData(
   textTheme: TextTheme(
     title: TextStyle(
       color: titleTextColor,
+      fontSize: 40
     ),
     body1: TextStyle(
         color: bodyTextColor,
     ),
+    body2: TextStyle(
+      color: activeTextColor,
+    )
   ),
 );
