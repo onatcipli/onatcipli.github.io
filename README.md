@@ -1,6 +1,6 @@
 # onatcipli_github_io
 
-A new Flutter project.
+A new Flutter project github actions.
 
 ## Getting Started
 
