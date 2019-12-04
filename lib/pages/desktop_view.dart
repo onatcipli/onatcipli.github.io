@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onatcipli_github_io/constants/constants.dart';
 import 'package:onatcipli_github_io/constants/dark_theme.dart';
+import 'package:onatcipli_github_io/shared/navigation/custom_navigator.dart';
 import 'package:onatcipli_github_io/widgets/paint_triangel.dart';
 
 class DesktopView extends StatefulWidget {
@@ -86,7 +87,10 @@ class _DesktopViewState extends State<DesktopView> {
           child: Padding(
             padding: const EdgeInsets.all(80.0),
             child: Card(
-              child: Text('first text'),
+              child: Navigator(
+                onGenerateRoute: CustomNavigator.onGenerateRoute,
+                initialRoute: 'about',
+              ),
               elevation: 5,
             ),
           ),
