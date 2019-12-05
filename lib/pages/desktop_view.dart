@@ -22,7 +22,7 @@ class _DesktopViewState extends State<DesktopView> {
         Expanded(
           flex: 3,
           child: Padding(
-            padding: const EdgeInsets.all(60.0),
+            padding: const EdgeInsets.fromLTRB(60.0,60,0,60),
             child: Card(
               elevation: 5,
               child: Column(
@@ -83,9 +83,19 @@ class _DesktopViewState extends State<DesktopView> {
           ),
         ),
         Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(40,140,40,140),
+            child: Card(
+              elevation: 10,
+              child: Text('toolBar'),
+            ),
+          ),
+        ),
+        Expanded(
           flex: 4,
           child: Padding(
-            padding: const EdgeInsets.all(80.0),
+            padding: const EdgeInsets.fromLTRB(0,80,80,80),
             child: Card(
               child: Navigator(
                 onGenerateRoute: CustomNavigator.onGenerateRoute,
