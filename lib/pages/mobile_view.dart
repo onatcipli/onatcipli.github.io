@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onatcipli_github_io/constants/social_media_buttons_icons.dart';
 
 class MobileView extends StatefulWidget {
   @override
@@ -8,6 +9,18 @@ class MobileView extends StatefulWidget {
 class _MobileViewState extends State<MobileView> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Card(
+      elevation: 10,
+      child: Container(
+        child: Column(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(SocialMediaButtons.instagram),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
