@@ -14,6 +14,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          channel: dev
+          channel: 'dev'
+      - run: flutter doctor
       - run: flutter pub get
-      - run: flutter build web --release
+      - run: flutter build web
