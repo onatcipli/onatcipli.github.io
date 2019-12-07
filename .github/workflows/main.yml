@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2-beta
-        with:
-          token: ${{secrets.commit_secret}}
       - uses: actions/setup-java@v1
         with:
           java-version: '12.x'
@@ -24,8 +22,8 @@ jobs:
       - run: flutter build web --release
       - run: |
           cd build/web
-          git config --global user.email onatcipli@outlook.com
-          git config --global user.name onatcipli
+          git config --local user.email "onatcipli@outlook.com"
+          git config --local user.name "Onat Çipli"
           git init
           git status
           git remote add origin https://github.com/onatcipli/onatcipli.github.io.git
