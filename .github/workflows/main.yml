@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     name: Build Web
+    env:
+      my_secret: ${{secrets.commit_secret}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -21,7 +23,7 @@ jobs:
       - run: cd build/web
       - run: git init
       - run: git add --all
-      - run: git remote origin https://onatcipli:${{secrets.commit_secret}}@github.com/onatcipli/onatcipli.github.io.git
+      - run: git remote origin https://onatcipli:"$my_secret"@github.com/onatcipli/onatcipli.github.io.git
       - run: git config --global user.email "onatcipli@outlook.com"
       - run: git config --global user.name ""
       - run: git commit -m "version update"
