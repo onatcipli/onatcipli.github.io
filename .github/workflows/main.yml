@@ -10,7 +10,9 @@ jobs:
       my_secret: ${{secrets.commit_secret}}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2-beta
+        with:
+          token: ${{secrets.commit_secret}}
       - uses: actions/setup-java@v1
         with:
           java-version: '12.x'
@@ -23,8 +25,7 @@ jobs:
       - run: cd build/web
       - run: git init
       - run: git add --all
-      - run: git remote origin https://onatcipli:"$my_secret"@github.com/onatcipli/onatcipli.github.io.git
       - run: git config --global user.email "onatcipli@outlook.com"
-      - run: git config --global user.name ""
+      - run: git config --global user.name "onatcipli"
       - run: git commit -m "version update"
       - run: git push origin master -f
