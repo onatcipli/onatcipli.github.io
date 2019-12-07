@@ -15,5 +15,12 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: 'dev'
+      - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
+      - run: cd build/web
+      - run: git init
+      - run: git add --all
+      - run: git commit -m "version update"
+      - run: git remote origin https://github.com/onatcipli/onatcipli.github.io.git
+      - run: git push origin master -f

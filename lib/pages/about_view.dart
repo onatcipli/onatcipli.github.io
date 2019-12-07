@@ -8,12 +8,9 @@ class AboutView extends StatelessWidget {
       "I'm Onat Cipli, Mobile Application Developer also UX researcher. " +
           "I have a rich experience with cross-platform frameworks such as Flutter, React Native and Ionic";
 
-  var _columnGlobalKey = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
     return Column(
-      key: _columnGlobalKey,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Align(

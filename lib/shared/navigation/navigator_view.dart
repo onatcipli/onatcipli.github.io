@@ -5,6 +5,7 @@ class NavigatorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Navigator(
+      key: CustomNavigator.navigatorKey,
       onGenerateRoute: CustomNavigator.onGenerateRoute,
       initialRoute: 'home',
     );

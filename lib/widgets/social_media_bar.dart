@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onatcipli_github_io/constants/social_media_buttons_icons.dart';
-import 'dart:html' as html;
+//import 'dart:html' as html;
 
 class SocialMediaBar extends StatelessWidget {
   final double iconSizes;
@@ -27,7 +27,7 @@ class SocialMediaBar extends StatelessWidget {
           iconSize: iconSizes,
           icon: Icon(SocialMediaButtons.twitter),
           onPressed: () {
-            html.window.open("https://twitter.com/CipliOnat", "");
+            //html.window.open("https://twitter.com/CipliOnat", "");
           },
         ),
         IconButton(

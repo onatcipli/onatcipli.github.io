@@ -3,6 +3,7 @@ import 'package:onatcipli_github_io/constants/constants.dart';
 import 'package:onatcipli_github_io/constants/dark_theme.dart';
 import 'package:onatcipli_github_io/constants/social_media_buttons_icons.dart';
 import 'package:onatcipli_github_io/shared/navigation/custom_navigator.dart';
+import 'package:onatcipli_github_io/widgets/navigation_bar.dart';
 import 'package:onatcipli_github_io/widgets/paint_triangel.dart';
 import 'package:onatcipli_github_io/widgets/social_media_bar.dart';
 
@@ -26,7 +27,6 @@ class _DesktopViewState extends State<DesktopView> {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(60.0, 60, 0, 60),
             child: Card(
-              elevation: 5,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
@@ -76,7 +76,9 @@ class _DesktopViewState extends State<DesktopView> {
                             style: Theme.of(context).textTheme.body2,
                           ),
                         ),
-                        SocialMediaBar(iconSizes: 40,),
+                        SocialMediaBar(
+                          iconSizes: 40,
+                        ),
                       ],
                     ),
                   ),
@@ -89,12 +91,7 @@ class _DesktopViewState extends State<DesktopView> {
           flex: 1,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(40, 140, 40, 140),
-            child: Card(
-                elevation: 10,
-                child: IconButton(
-                  icon: Icon(SocialMediaButtons.instagram),
-                  onPressed: () {},
-                )),
+            child: NavigationBar(),
           ),
         ),
         Expanded(
@@ -103,6 +100,7 @@ class _DesktopViewState extends State<DesktopView> {
             padding: const EdgeInsets.fromLTRB(0, 80, 80, 80),
             child: Card(
               child: Navigator(
+                key: CustomNavigator.navigatorKey,
                 onGenerateRoute: CustomNavigator.onGenerateRoute,
                 initialRoute: 'about',
               ),
