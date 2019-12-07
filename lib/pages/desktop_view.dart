@@ -11,14 +11,6 @@ class DesktopView extends StatefulWidget {
 class _DesktopViewState extends State<DesktopView> {
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final height = MediaQuery
-        .of(context)
-        .size
-        .height;
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -27,10 +19,18 @@ class _DesktopViewState extends State<DesktopView> {
         Expanded(
           flex: 3,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(60.0, 60, 0, 60),
+            padding: const EdgeInsets.fromLTRB(40.0, 60, 0, 60),
             child: LayoutBuilder(
               builder: (context, constrains) {
-                if (constrains.maxWidth > 250) {
+                if (constrains.maxWidth > 550) {
+                  return UserCard(
+                    width: 425,
+                  );
+                } else if (constrains.maxWidth > 400) {
+                  return UserCard(
+                    width: 350,
+                  );
+                } else if (constrains.maxWidth > 250) {
                   return UserCard(
                     width: 200,
                   );
@@ -51,15 +51,22 @@ class _DesktopViewState extends State<DesktopView> {
           flex: 1,
           child: LayoutBuilder(
             builder: (context, constrains) {
-              if (constrains.maxWidth > 160) {
+              if (constrains.maxWidth > 220) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(50, 140, 50, 140),
+                  child: NavigationBar(size: 50),
+                );
+              } else if (constrains.maxWidth > 160) {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(30, 140, 30, 140),
                   child: NavigationBar(size: 35),
                 );
-              }else {
+              } else {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(20, 140, 20, 140),
-                  child: NavigationBar(size: 25,),
+                  child: NavigationBar(
+                    size: 25,
+                  ),
                 );
               }
             },
@@ -68,7 +75,7 @@ class _DesktopViewState extends State<DesktopView> {
         Expanded(
           flex: 4,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 80, 80, 80),
+            padding: const EdgeInsets.fromLTRB(0, 80, 40, 80),
             child: Card(
               child: Navigator(
                 key: CustomNavigator.navigatorKey,

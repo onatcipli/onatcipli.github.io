@@ -1,3 +1,4 @@
+import 'package:countdown_flutter/countdown_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:onatcipli_github_io/constants/constants.dart';
 import 'package:onatcipli_github_io/constants/dark_theme.dart';
@@ -54,6 +55,7 @@ class UserCard extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'Onat Çipli',
+                    textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.title,
                   ),
                 ),
@@ -64,8 +66,34 @@ class UserCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.body2,
                   ),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
                 SocialMediaBar(
                   iconSizes: width / 5,
+                ),
+                Expanded(child: Container(),),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(
+                    child: Column(
+                      children: <Widget>[
+                        Text('coming soon'),
+                        CountdownFormatted(
+                          duration: DateTime(2020).difference(DateTime.now()),
+                          onFinish: () {
+                            print('finished!');
+                          },
+                          builder: (BuildContext ctx, String remaining) {
+                            return Text(
+                              remaining,
+                              style: Theme.of(context).textTheme.body1,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),

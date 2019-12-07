@@ -69,7 +69,7 @@ class CustomTab extends StatelessWidget {
     Key key,
     @required this.size,
     @required this.text,
-    @required this.iconData,
+    this.iconData,
     this.child,
   }) : super(key: key);
 
@@ -89,7 +89,12 @@ class CustomTab extends StatelessWidget {
         SizedBox(
           height: size / 4,
         ),
-        Text(text),
+        FittedBox(
+          fit: BoxFit.fitWidth,
+          child: Text(
+            text,
+          ),
+        ),
         SizedBox(
           height: size / 4,
         ),

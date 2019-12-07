@@ -13,7 +13,11 @@ class _MobileViewState extends State<MobileView> {
       padding: const EdgeInsets.all(8.0),
       child: LayoutBuilder(
         builder: (context, constrains) {
-          if (constrains.maxWidth > 250) {
+          if (constrains.maxWidth > 400) {
+            return UserCard(
+              width: 350,
+            );
+          } else if (constrains.maxWidth > 250) {
             return UserCard(
               width: 200,
             );
@@ -21,9 +25,13 @@ class _MobileViewState extends State<MobileView> {
             return UserCard(
               width: 150,
             );
-          } else {
+          } else if (constrains.maxWidth > 150) {
             return UserCard(
               width: 100,
+            );
+          } else {
+            return UserCard(
+              width: 75,
             );
           }
         },

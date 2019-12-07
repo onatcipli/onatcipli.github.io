@@ -46,7 +46,8 @@ class AboutView extends StatelessWidget {
                 ),
               ),
               ResponsiveBuilder(
-                builder: (BuildContext context, SizingInformation sizingInformation) {
+                builder: (BuildContext context,
+                    SizingInformation sizingInformation) {
                   return CustomDivider(
                     sizingInformation: sizingInformation,
                     direction: Axis.vertical,
@@ -60,7 +61,6 @@ class AboutView extends StatelessWidget {
             ],
           ),
         ),
-        Text('something'),
       ],
     );
   }
