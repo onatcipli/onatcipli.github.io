@@ -14,18 +14,18 @@ jobs:
         with:
           token: ${{secrets.commit_secret}}
       - uses: actions/setup-java@v1
-          with:
-            java-version: '12.x'
+        with:
+          java-version: '12.x'
       - uses: subosito/flutter-action@v1
-          with:
-            channel: 'dev'
+        with:
+          channel: 'dev'
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
       - run: |
           cd build/web
-          git global --local user.email onatcipli@outlook.com
-          git global --local user.name onatcipli
+          git config --global user.email onatcipli@outlook.com
+          git config --global user.name onatcipli
           git init
           git status
           git remote add origin https://github.com/onatcipli/onatcipli.github.io.git
