@@ -22,17 +22,17 @@ class _DesktopViewState extends State<DesktopView> {
             padding: const EdgeInsets.fromLTRB(40.0, 60, 0, 60),
             child: LayoutBuilder(
               builder: (context, constrains) {
-                if (constrains.maxWidth > 550) {
+                if (constrains.maxWidth > 450) {
                   return UserCard(
-                    width: 425,
+                    width: 210,
                   );
-                } else if (constrains.maxWidth > 400) {
+                } else if (constrains.maxWidth > 350) {
                   return UserCard(
-                    width: 350,
+                    width: 190,
                   );
                 } else if (constrains.maxWidth > 250) {
                   return UserCard(
-                    width: 200,
+                    width: 175,
                   );
                 } else if (constrains.maxWidth > 200) {
                   return UserCard(

@@ -70,7 +70,7 @@ class UserCard extends StatelessWidget {
                   height: 10,
                 ),
                 SocialMediaBar(
-                  iconSizes: width / 5,
+                  iconSizes: width / 6,
                 ),
                 Expanded(child: Container(),),
                 Padding(
