@@ -23,7 +23,7 @@ jobs:
           git config --global user.name onatcipli
           git init
           git status
-          git remote add origin https://github.com/onatcipli/onatcipli.github.io.git
+          git remote add origin git@github.com:onatcipli/onatcipli.github.io.git
           ls
           git add --all
           ls
