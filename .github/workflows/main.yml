@@ -21,6 +21,8 @@ jobs:
       - run: cd build/web
       - run: git init
       - run: git add --all
-      - run: git commit -m "version update"
       - run: git remote origin https://onatcipli:${{secrets.commit_secret}}@github.com/onatcipli/onatcipli.github.io.git
+      - run: git config --global user.email "onatcipli@outlook.com"
+      - run: git config --global user.name ""
+      - run: git commit -m "version update"
       - run: git push origin master -f
