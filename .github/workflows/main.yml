@@ -22,5 +22,5 @@ jobs:
       - run: git init
       - run: git add --all
       - run: git commit -m "version update"
-      - run: git remote origin https://github.com/onatcipli/onatcipli.github.io.git
+      - run: git remote origin https://onatcipli:${{secrets.commit_secret}}@github.com/onatcipli/onatcipli.github.io.git
       - run: git push origin master -f
