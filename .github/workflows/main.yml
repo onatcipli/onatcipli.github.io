@@ -24,14 +24,15 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release
       - name: publish to master
-      - run: |
-          cd build/web
-          git init
-          git status
-          git remote add origin https://github.com/onatcipli/onatcipli.github.io.git
-          ls
-          git add --all
-          ls
-          git commit -m "update"
-          ls
-          git push origin master -f
+      - run: cd build/web
+      - run: ls
+      - run: git init
+      - run: ls
+      - run: git status
+      - run: git remote add origin https://github.com/onatcipli/onatcipli.github.io.git
+      - run: ls
+      - run: git add --all
+      - run: ls
+      - run: git commit -m "update"
+      - run: ls
+      - run: git push origin master -f
