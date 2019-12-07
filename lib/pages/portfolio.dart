@@ -7,14 +7,16 @@ class Portfolio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ResponsiveBuilder(
-        builder: (BuildContext context, SizingInformation sizingInformation) {
-          if (sizingInformation.isDesktop || sizingInformation.isTablet) {
-            return DesktopView();
-          } else {
-            return MobileView();
-          }
-        },
+      body: SafeArea(
+        child: ResponsiveBuilder(
+          builder: (BuildContext context, SizingInformation sizingInformation) {
+            if (sizingInformation.isDesktop || sizingInformation.isTablet) {
+              return DesktopView();
+            } else {
+              return MobileView();
+            }
+          },
+        ),
       ),
     );
   }

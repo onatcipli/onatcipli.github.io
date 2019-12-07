@@ -19,7 +19,7 @@ class PaintTriangle extends CustomPainter {
 
     path
       ..moveTo(0, y)
-      ..lineTo((x / 2), (y / 1.5))..lineTo(x, y);
+      ..lineTo((x / 2), (y / 1.1))..lineTo(x, y);
 
 
     canvas.drawPath(path, paint);
