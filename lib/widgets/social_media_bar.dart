@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onatcipli_github_io/constants/social_media_buttons_icons.dart';
+import 'package:social_media_buttons/social_media_buttons.dart';
 import 'package:onatcipli_github_io/widgets/hover_detector.dart';
 
 class SocialMediaBar extends StatelessWidget {
@@ -15,37 +15,63 @@ class SocialMediaBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SocialMediaButton(
-              iconSizes: iconSizes,
-              iconData: SocialMediaButtons.github_circled),
-          SocialMediaButton(
-              iconSizes: iconSizes, iconData: SocialMediaButtons.stackoverflow),
-          SocialMediaButton(
-              iconSizes: iconSizes, iconData: SocialMediaButtons.twitter),
-          SocialMediaButton(
-              iconSizes: iconSizes, iconData: SocialMediaButtons.linkedin),
+          HoverButton(
+            iconSizes: iconSizes,
+            iconData: SocialMediaIcons.github_circled,
+            url: 'https://github.com/onatcipli',
+          ),
+          HoverButton(
+            iconSizes: iconSizes,
+            iconData: SocialMediaIcons.stackoverflow,
+            url: 'https://stackoverflow.com/users/10685785/cipli-onat',
+          ),
+          HoverButton(
+            iconSizes: iconSizes,
+            iconData: SocialMediaIcons.twitter,
+            url: 'https://twitter.com/CipliOnat',
+          ),
+          HoverButton(
+            iconSizes: iconSizes,
+            iconData: SocialMediaIcons.linkedin,
+            url: 'https://www.linkedin.com/in/onat-%C3%A7ipli/',
+          ),
+          HoverButton(
+            iconSizes: iconSizes,
+            iconData: SocialMediaIcons.medium,
+            url: 'https://medium.com/@ciplionat35',
+          ),
         ],
       ),
     );
   }
 }
 
-class SocialMediaButton extends StatefulWidget {
+class HoverButton extends StatefulWidget {
   final double iconSizes;
   final IconData iconData;
 
-  const SocialMediaButton({
+  final String url;
+
+  const HoverButton({
     Key key,
     @required this.iconSizes,
     @required this.iconData,
+    @required this.url,
   }) : super(key: key);
 
   @override
-  _SocialMediaButtonState createState() => _SocialMediaButtonState();
+  _HoverButtonState createState() => _HoverButtonState();
 }
 
-class _SocialMediaButtonState extends State<SocialMediaButton> {
+class _HoverButtonState extends State<HoverButton> {
   bool isHover = false;
+  double size = 20;
+
+  @override
+  void initState() {
+    size = widget.iconSizes;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,17 +82,20 @@ class _SocialMediaButtonState extends State<SocialMediaButton> {
         onHover: () {
           setState(() {
             isHover = true;
+            size = widget.iconSizes + 20;
           });
         },
         onExit: () {
           setState(() {
             isHover = false;
+            size = widget.iconSizes;
           });
         },
-        child: Icon(
-          widget.iconData,
-          size: widget.iconSizes,
+        child: SocialMediaButton(
+          size: size,
           color: isHover ? theme.hoverColor : theme.iconTheme.color,
+          iconData: widget.iconData,
+          url: widget.url,
         ),
       ),
     );

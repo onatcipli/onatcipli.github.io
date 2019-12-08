@@ -2,6 +2,21 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart' as html;
 
+// Also add id="app_container" to web/index.html body tag
+//
+//
+//<!DOCTYPE html>
+//<html>
+//<head>
+//<meta charset="UTF-8">
+//<title>onatcipli_github_io</title>
+//</head>
+//<body id="app_container">
+//<script src="main.dart.js" type="application/javascript"></script>
+//</body>
+//</html>
+//
+
 class HoverDetector extends MouseRegion {
   // get a reference to the body element that we previously altered
   static final appContainer =
