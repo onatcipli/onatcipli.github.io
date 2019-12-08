@@ -29,9 +29,13 @@ class _MobileViewState extends State<MobileView> {
             return UserCard(
               width: 100,
             );
+          }  else if (constrains.maxWidth > 100) {
+            return UserCard(
+              width: 60,
+            );
           } else {
             return UserCard(
-              width: 75,
+              width: 50,
             );
           }
         },
