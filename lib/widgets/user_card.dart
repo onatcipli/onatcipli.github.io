@@ -16,6 +16,7 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 8,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
