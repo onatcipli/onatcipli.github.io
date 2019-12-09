@@ -17,7 +17,7 @@ class _DesktopViewState extends State<DesktopView> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Expanded(
-          flex: 3,
+          flex: 2,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(40.0, 60, 0, 60),
             child: LayoutBuilder(

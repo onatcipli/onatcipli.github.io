@@ -54,7 +54,7 @@ class HoverButton extends StatefulWidget {
 
   const HoverButton({
     Key key,
-    @required this.iconSizes,
+    @required this.iconSizes = 20,
     @required this.iconData,
     @required this.url,
   }) : super(key: key);
