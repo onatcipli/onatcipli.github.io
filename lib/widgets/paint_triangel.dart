@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-
 class PaintTriangle extends CustomPainter {
   final Color backgroundColor;
 
@@ -13,14 +12,15 @@ class PaintTriangle extends CustomPainter {
     final y = size.height;
     final x = size.width;
 
-    final paint = Paint()
-      ..color = backgroundColor;
+    final paint = Paint()..color = backgroundColor;
     final path = Path();
 
     path
       ..moveTo(0, y)
-      ..lineTo((x / 2), (y / 1.1))..lineTo(x, y);
-
+      ..lineTo(0, y / 1.2)
+      ..lineTo((x / 2), y / 1.5)
+      ..lineTo(x, y / 1.2)
+      ..lineTo(x, y);
 
     canvas.drawPath(path, paint);
   }
@@ -29,5 +29,4 @@ class PaintTriangle extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
   }
-
 }
