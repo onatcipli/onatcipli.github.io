@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:onatcipli_github_io/pages/about_view.dart';
+import 'package:onatcipli_github_io/pages/flutter_view.dart';
+import 'package:onatcipli_github_io/widgets/animations/fade_out_page.dart';
 import 'package:onatcipli_github_io/widgets/user_card.dart';
 
 class DesktopView extends StatefulWidget {
@@ -6,7 +9,18 @@ class DesktopView extends StatefulWidget {
   _DesktopViewState createState() => _DesktopViewState();
 }
 
-class _DesktopViewState extends State<DesktopView> {
+class _DesktopViewState extends State<DesktopView> with SingleTickerProviderStateMixin{
+  Views currentView = Views.about;
+
+  AnimationController animationController;
+
+  @override
+  void initState() {
+    animationController =
+        AnimationController(duration: Duration(milliseconds: 350), vsync: this);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -49,15 +63,26 @@ class _DesktopViewState extends State<DesktopView> {
           padding: const EdgeInsets.fromLTRB(80, 100, 0, 250),
           child: Container(
               width: 100,
-              child: Card(elevation: 5, child: MyCustomNavigationBar())),
+              child: Card(
+                  elevation: 5,
+                  child: MyCustomNavigationBar(
+                    handleOnChange: (Views view) async {
+                      animationController.reverse();
+                      await Future.delayed(Duration(milliseconds: 350));
+                      setState(() {
+                        currentView = view;
+                      });
+                      animationController.forward();
+                    },
+                  ))),
         ),
         Expanded(
           flex: 4,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 80, 40, 80),
-            child: Card(
-              child: CustomViewOfTheSelected(),
-              elevation: 5,
+            child: CustomViewOfTheSelected(
+              animationController: animationController,
+              currentView: currentView,
             ),
           ),
         ),
@@ -86,14 +111,16 @@ class CustomNavBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0,0,0,10),
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
           color: activeColor,
           child: Column(
             children: <Widget>[
-              SizedBox(height: 5,),
+              SizedBox(
+                height: 5,
+              ),
               child,
               SizedBox(
                 height: 8,
@@ -101,7 +128,9 @@ class CustomNavBarItem extends StatelessWidget {
               Text(
                 text,
               ),
-              SizedBox(height: 5,)
+              SizedBox(
+                height: 5,
+              )
             ],
           ),
         ),
@@ -111,6 +140,11 @@ class CustomNavBarItem extends StatelessWidget {
 }
 
 class MyCustomNavigationBar extends StatefulWidget {
+  final Function(Views) handleOnChange;
+
+  const MyCustomNavigationBar({Key key, @required this.handleOnChange})
+      : super(key: key);
+
   @override
   _MyCustomNavigationBarState createState() => _MyCustomNavigationBarState();
 }
@@ -125,7 +159,7 @@ class _MyCustomNavigationBarState extends State<MyCustomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    final activeColor = Theme.of(context).hoverColor;
+    final activeColor = Theme.of(context).backgroundColor;
     final disableColor = Theme.of(context).cardColor;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -139,6 +173,7 @@ class _MyCustomNavigationBarState extends State<MyCustomNavigationBar> {
             setState(() {
               currentView = Views.about;
             });
+            widget.handleOnChange(currentView);
           },
           activeColor: currentView == Views.about ? activeColor : disableColor,
         ),
@@ -149,6 +184,7 @@ class _MyCustomNavigationBarState extends State<MyCustomNavigationBar> {
             setState(() {
               currentView = Views.flutter;
             });
+            widget.handleOnChange(currentView);
           },
           activeColor:
               currentView == Views.flutter ? activeColor : disableColor,
@@ -158,10 +194,52 @@ class _MyCustomNavigationBarState extends State<MyCustomNavigationBar> {
   }
 }
 
-class CustomViewOfTheSelected extends StatelessWidget {
+class CustomViewOfTheSelected extends StatefulWidget {
+  final AnimationController animationController;
+  final Views currentView;
+
+  const CustomViewOfTheSelected({Key key, this.currentView, this.animationController}) : super(key: key);
+
+  @override
+  _CustomViewOfTheSelectedState createState() =>
+      _CustomViewOfTheSelectedState();
+}
+
+class _CustomViewOfTheSelectedState extends State<CustomViewOfTheSelected>
+    with SingleTickerProviderStateMixin {
+
+  Animation<double> opacityForward;
+
+  Animation<double> transitionXForward;
+
+  @override
+  void initState() {
+
+    opacityForward =
+        Tween<double>(begin: 0, end: 1).animate(widget.animationController);
+    transitionXForward =
+        Tween<double>(begin: -150, end: 0).animate(widget.animationController);
+
+    widget.animationController.forward();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget.animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return FadeOutAnimation(
+      opacity: opacityForward,
+      transitionX: transitionXForward,
+      child: Card(
+        elevation: 5,
+        child: widget.currentView == Views.about ? AboutView() : FlutterView(),
+      ),
+    );
   }
 }
 
