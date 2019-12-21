@@ -60,31 +60,37 @@ class _DesktopViewState extends State<DesktopView>
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(80, 100, 0, 250),
-          child: Container(
-              width: 100,
-              child: Card(
-                  elevation: 5,
-                  child: MyCustomNavigationBar(
-                    handleOnChange: (Views view) async {
-                      animationController.reverse();
-                      await Future.delayed(Duration(milliseconds: 350));
-                      setState(() {
-                        currentView = view;
-                      });
-                      animationController.forward();
-                    },
-                  ))),
-        ),
         Expanded(
-          flex: 4,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 80, 40, 80),
-            child: CustomViewOfTheSelected(
-              animationController: animationController,
-              currentView: currentView,
-            ),
+          flex: 5,
+          child: Stack(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(100, 80, 40, 80),
+                child: CustomViewOfTheSelected(
+                  animationController: animationController,
+                  currentView: currentView,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 100, 0, 250),
+                child: Container(
+                  width: 100,
+                  child: Card(
+                    elevation: 5,
+                    child: MyCustomNavigationBar(
+                      handleOnChange: (Views view) async {
+                        animationController.reverse();
+                        await Future.delayed(Duration(milliseconds: 350));
+                        setState(() {
+                          currentView = view;
+                        });
+                        animationController.forward();
+                      },
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],
@@ -237,7 +243,7 @@ class _CustomViewOfTheSelectedState extends State<CustomViewOfTheSelected>
       opacity: opacityForward,
       transitionX: transitionXForward,
       child: Card(
-        elevation: 5,
+        elevation: 1,
         child: widget.currentView == Views.about ? AboutView() : FlutterView(),
       ),
     );
