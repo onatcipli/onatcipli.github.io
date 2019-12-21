@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:onatcipli_github_io/shared/navigation/custom_navigator.dart';
-import 'package:onatcipli_github_io/widgets/navigation_bar.dart';
 import 'package:onatcipli_github_io/widgets/user_card.dart';
 
 class DesktopView extends StatefulWidget {
@@ -47,41 +45,18 @@ class _DesktopViewState extends State<DesktopView> {
             ),
           ),
         ),
-        Expanded(
-          flex: 1,
-          child: LayoutBuilder(
-            builder: (context, constrains) {
-              if (constrains.maxWidth > 220) {
-                return Padding(
-                  padding: const EdgeInsets.fromLTRB(50, 140, 50, 140),
-                  child: NavigationBar(size: 50),
-                );
-              } else if (constrains.maxWidth > 160) {
-                return Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 140, 30, 140),
-                  child: NavigationBar(size: 35),
-                );
-              } else {
-                return Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 140, 20, 140),
-                  child: NavigationBar(
-                    size: 25,
-                  ),
-                );
-              }
-            },
-          ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(80, 100, 0, 250),
+          child: Container(
+              width: 100,
+              child: Card(elevation: 5, child: MyCustomNavigationBar())),
         ),
         Expanded(
           flex: 4,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 80, 40, 80),
             child: Card(
-              child: Navigator(
-                key: CustomNavigator.navigatorKey,
-                onGenerateRoute: CustomNavigator.onGenerateRoute,
-                initialRoute: 'about',
-              ),
+              child: CustomViewOfTheSelected(),
               elevation: 5,
             ),
           ),
@@ -90,3 +65,104 @@ class _DesktopViewState extends State<DesktopView> {
     );
   }
 }
+
+class CustomNavBarItem extends StatelessWidget {
+  final Widget child;
+
+  final String text;
+
+  final Function onTap;
+
+  final Color activeColor;
+
+  const CustomNavBarItem({
+    Key key,
+    @required this.text,
+    @required this.child,
+    @required this.onTap,
+    this.activeColor = const Color(0xff31313A),
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0,0,0,10),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          color: activeColor,
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 5,),
+              child,
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                text,
+              ),
+              SizedBox(height: 5,)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MyCustomNavigationBar extends StatefulWidget {
+  @override
+  _MyCustomNavigationBarState createState() => _MyCustomNavigationBarState();
+}
+
+class _MyCustomNavigationBarState extends State<MyCustomNavigationBar> {
+  Views currentView = Views.about;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final activeColor = Theme.of(context).hoverColor;
+    final disableColor = Theme.of(context).cardColor;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
+      children: <Widget>[
+        CustomNavBarItem(
+          text: 'About',
+          child: Icon(Icons.person),
+          onTap: () {
+            setState(() {
+              currentView = Views.about;
+            });
+          },
+          activeColor: currentView == Views.about ? activeColor : disableColor,
+        ),
+        CustomNavBarItem(
+          text: 'Flutter',
+          child: FlutterLogo(),
+          onTap: () {
+            setState(() {
+              currentView = Views.flutter;
+            });
+          },
+          activeColor:
+              currentView == Views.flutter ? activeColor : disableColor,
+        ),
+      ],
+    );
+  }
+}
+
+class CustomViewOfTheSelected extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+enum Views { about, flutter }
