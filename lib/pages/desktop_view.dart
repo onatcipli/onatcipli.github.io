@@ -9,7 +9,8 @@ class DesktopView extends StatefulWidget {
   _DesktopViewState createState() => _DesktopViewState();
 }
 
-class _DesktopViewState extends State<DesktopView> with SingleTickerProviderStateMixin{
+class _DesktopViewState extends State<DesktopView>
+    with SingleTickerProviderStateMixin {
   Views currentView = Views.about;
 
   AnimationController animationController;
@@ -198,7 +199,9 @@ class CustomViewOfTheSelected extends StatefulWidget {
   final AnimationController animationController;
   final Views currentView;
 
-  const CustomViewOfTheSelected({Key key, this.currentView, this.animationController}) : super(key: key);
+  const CustomViewOfTheSelected(
+      {Key key, this.currentView, this.animationController})
+      : super(key: key);
 
   @override
   _CustomViewOfTheSelectedState createState() =>
@@ -207,14 +210,12 @@ class CustomViewOfTheSelected extends StatefulWidget {
 
 class _CustomViewOfTheSelectedState extends State<CustomViewOfTheSelected>
     with SingleTickerProviderStateMixin {
-
   Animation<double> opacityForward;
 
   Animation<double> transitionXForward;
 
   @override
   void initState() {
-
     opacityForward =
         Tween<double>(begin: 0, end: 1).animate(widget.animationController);
     transitionXForward =
