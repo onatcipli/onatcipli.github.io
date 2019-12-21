@@ -15,10 +15,13 @@ class _DesktopViewState extends State<DesktopView>
 
   AnimationController animationController;
 
+  Duration _duration = Duration(milliseconds: 500);
+
+  Curve currentCurve = Curves.bounceOut;
+
   @override
   void initState() {
-    animationController =
-        AnimationController(duration: Duration(milliseconds: 350), vsync: this);
+    animationController = AnimationController(duration: _duration, vsync: this);
     super.initState();
   }
 
@@ -80,7 +83,7 @@ class _DesktopViewState extends State<DesktopView>
                     child: MyCustomNavigationBar(
                       handleOnChange: (Views view) async {
                         animationController.reverse();
-                        await Future.delayed(Duration(milliseconds: 350));
+                        await Future.delayed(_duration);
                         setState(() {
                           currentView = view;
                         });
@@ -149,8 +152,10 @@ class CustomNavBarItem extends StatelessWidget {
 class MyCustomNavigationBar extends StatefulWidget {
   final Function(Views) handleOnChange;
 
-  const MyCustomNavigationBar({Key key, @required this.handleOnChange})
-      : super(key: key);
+  const MyCustomNavigationBar({
+    Key key,
+    @required this.handleOnChange,
+  }) : super(key: key);
 
   @override
   _MyCustomNavigationBarState createState() => _MyCustomNavigationBarState();
@@ -205,9 +210,11 @@ class CustomViewOfTheSelected extends StatefulWidget {
   final AnimationController animationController;
   final Views currentView;
 
-  const CustomViewOfTheSelected(
-      {Key key, this.currentView, this.animationController})
-      : super(key: key);
+  const CustomViewOfTheSelected({
+    Key key,
+    this.currentView,
+    this.animationController,
+  }) : super(key: key);
 
   @override
   _CustomViewOfTheSelectedState createState() =>
@@ -220,12 +227,14 @@ class _CustomViewOfTheSelectedState extends State<CustomViewOfTheSelected>
 
   Animation<double> transitionXForward;
 
+  var curve = Curves.linear;
+
   @override
   void initState() {
-    opacityForward =
-        Tween<double>(begin: 0, end: 1).animate(widget.animationController);
-    transitionXForward =
-        Tween<double>(begin: -150, end: 0).animate(widget.animationController);
+    opacityForward = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
+        parent: widget.animationController, curve: Curves.easeInCubic));
+    transitionXForward = Tween<double>(begin: -100, end: 0).animate(
+        CurvedAnimation(parent: widget.animationController, curve: curve));
 
     widget.animationController.forward();
     super.initState();
@@ -242,9 +251,75 @@ class _CustomViewOfTheSelectedState extends State<CustomViewOfTheSelected>
     return FadeOutAnimation(
       opacity: opacityForward,
       transitionX: transitionXForward,
-      child: Card(
-        elevation: 1,
-        child: widget.currentView == Views.about ? AboutView() : FlutterView(),
+      child: Stack(
+        children: <Widget>[
+          Card(
+            elevation: 1,
+            child:
+                widget.currentView == Views.about ? AboutView() : FlutterView(),
+          ),
+          Align(
+            alignment: Alignment.topRight,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DropdownButton<Curve>(
+                value: curve,
+                items: [
+                  DropdownMenuItem(
+                    child: Text(
+                      'linear',
+                    ),
+                    value: Curves.linear,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('easeInCubic'),
+                    value: Curves.easeInCubic,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('easeInBack'),
+                    value: Curves.easeInBack,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('easeIn'),
+                    value: Curves.easeIn,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('bounceOut'),
+                    value: Curves.bounceOut,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('bounceIn'),
+                    value: Curves.bounceIn,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('bounceInOut'),
+                    value: Curves.bounceInOut,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('elasticOut'),
+                    value: Curves.elasticOut,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('elasticIn'),
+                    value: Curves.elasticIn,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('elasticInOut'),
+                    value: Curves.elasticInOut,
+                  ),
+                ],
+                onChanged: (Curve _current) {
+                  setState(() {
+                    curve = _current;
+                  });
+                  transitionXForward = Tween<double>(begin: -100, end: 0)
+                      .animate(CurvedAnimation(
+                          parent: widget.animationController, curve: curve));
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

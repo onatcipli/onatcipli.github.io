@@ -19,10 +19,10 @@ class ProjectModel {
 
 List<ProjectModel> projects = [
   ProjectModel(
-    name: 'Project 1',
+    name: 'The Ozon',
     deploymentUrl: 'github.com/onatcipli',
     sourceUrl: 'github.com/onatcipli',
-    imageUrl: profileImageUrl,
+    imageUrl: "https://banner2.cleanpng.com/20180523/fuf/kisspng-unity-game-engine-logo-video-game-corelle-brands-5b059883ec9bc6.4197736615270933799692.jpg",
   ),
   ProjectModel(
     name: 'Flutter',

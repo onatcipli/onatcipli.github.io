@@ -82,13 +82,11 @@ class _HoverButtonState extends State<HoverButton> {
         onHover: () {
           setState(() {
             isHover = true;
-            size = widget.iconSizes + 20;
           });
         },
         onExit: () {
           setState(() {
             isHover = false;
-            size = widget.iconSizes;
           });
         },
         child: SocialMediaButton(
