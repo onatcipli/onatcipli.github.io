@@ -30,16 +30,19 @@ class FlutterView extends StatelessWidget {
         Expanded(
           child: LayoutBuilder(
             builder: (context, constrains) {
-              return GridView.count(
-                crossAxisCount: 2,
-                children: projects.map((current) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ProjectCard(
-                      currentProject: current,
-                    ),
-                  );
-                }).toList(),
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: projects.map((current) {
+                    return Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: ProjectCard(
+                        height: 200,
+                        currentProject: current,
+                      ),
+                    );
+                  }).toList(),
+                ),
               );
             },
           ),

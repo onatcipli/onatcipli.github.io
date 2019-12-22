@@ -227,7 +227,7 @@ class _CustomViewOfTheSelectedState extends State<CustomViewOfTheSelected>
 
   Animation<double> transitionXForward;
 
-  var curve = Curves.linear;
+  var curve = Curves.easeInCubic;
 
   @override
   void initState() {
@@ -258,67 +258,70 @@ class _CustomViewOfTheSelectedState extends State<CustomViewOfTheSelected>
             child:
                 widget.currentView == Views.about ? AboutView() : FlutterView(),
           ),
-          Align(
-            alignment: Alignment.topRight,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: DropdownButton<Curve>(
-                value: curve,
-                items: [
-                  DropdownMenuItem(
-                    child: Text(
-                      'linear',
+          false
+              ? Align(
+                  alignment: Alignment.topRight,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: DropdownButton<Curve>(
+                      value: curve,
+                      items: [
+                        DropdownMenuItem(
+                          child: Text(
+                            'linear',
+                          ),
+                          value: Curves.linear,
+                        ),
+                        DropdownMenuItem(
+                          child: Text('easeInCubic'),
+                          value: Curves.easeInCubic,
+                        ),
+                        DropdownMenuItem(
+                          child: Text('easeInBack'),
+                          value: Curves.easeInBack,
+                        ),
+                        DropdownMenuItem(
+                          child: Text('easeIn'),
+                          value: Curves.easeIn,
+                        ),
+                        DropdownMenuItem(
+                          child: Text('bounceOut'),
+                          value: Curves.bounceOut,
+                        ),
+                        DropdownMenuItem(
+                          child: Text('bounceIn'),
+                          value: Curves.bounceIn,
+                        ),
+                        DropdownMenuItem(
+                          child: Text('bounceInOut'),
+                          value: Curves.bounceInOut,
+                        ),
+                        DropdownMenuItem(
+                          child: Text('elasticOut'),
+                          value: Curves.elasticOut,
+                        ),
+                        DropdownMenuItem(
+                          child: Text('elasticIn'),
+                          value: Curves.elasticIn,
+                        ),
+                        DropdownMenuItem(
+                          child: Text('elasticInOut'),
+                          value: Curves.elasticInOut,
+                        ),
+                      ],
+                      onChanged: (Curve _current) {
+                        setState(() {
+                          curve = _current;
+                        });
+                        transitionXForward = Tween<double>(begin: -100, end: 0)
+                            .animate(CurvedAnimation(
+                                parent: widget.animationController,
+                                curve: curve));
+                      },
                     ),
-                    value: Curves.linear,
                   ),
-                  DropdownMenuItem(
-                    child: Text('easeInCubic'),
-                    value: Curves.easeInCubic,
-                  ),
-                  DropdownMenuItem(
-                    child: Text('easeInBack'),
-                    value: Curves.easeInBack,
-                  ),
-                  DropdownMenuItem(
-                    child: Text('easeIn'),
-                    value: Curves.easeIn,
-                  ),
-                  DropdownMenuItem(
-                    child: Text('bounceOut'),
-                    value: Curves.bounceOut,
-                  ),
-                  DropdownMenuItem(
-                    child: Text('bounceIn'),
-                    value: Curves.bounceIn,
-                  ),
-                  DropdownMenuItem(
-                    child: Text('bounceInOut'),
-                    value: Curves.bounceInOut,
-                  ),
-                  DropdownMenuItem(
-                    child: Text('elasticOut'),
-                    value: Curves.elasticOut,
-                  ),
-                  DropdownMenuItem(
-                    child: Text('elasticIn'),
-                    value: Curves.elasticIn,
-                  ),
-                  DropdownMenuItem(
-                    child: Text('elasticInOut'),
-                    value: Curves.elasticInOut,
-                  ),
-                ],
-                onChanged: (Curve _current) {
-                  setState(() {
-                    curve = _current;
-                  });
-                  transitionXForward = Tween<double>(begin: -100, end: 0)
-                      .animate(CurvedAnimation(
-                          parent: widget.animationController, curve: curve));
-                },
-              ),
-            ),
-          ),
+                )
+              : Container(),
         ],
       ),
     );

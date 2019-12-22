@@ -5,8 +5,8 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 class AboutView extends StatelessWidget {
   final String _aboutMeString =
-      "I'm Onat Cipli, Mobile Application Developer also UX researcher. " +
-          "I have a rich experience with cross-platform frameworks such as Flutter, React Native and Ionic";
+      "I'm a software engineer who specializes in Cross-Platform Mobile Application Development. I have experience with cross-platform frameworks such as Ionic, React Native and Flutter. I have been working in a Corporate Company in Turkey on Cross-Platform mobile development for nearly 15 months. The company that I am working for provides business solutions, I have participated in 3 mobile projects which are developed with Ionic and Flutter. In these projects, I experienced to manage the requirements and tasks with Asana, Trello, and Jira. I can easily work with rest APIS and real-time databases. On the other hand, I’m giving public speeches and writing articles about Flutter.";
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,14 @@ class AboutView extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 flex: 1,
-                child: Text(
-                  _aboutMeString,
-                  style: TextStyle(
-                    height: 1.6,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(0,0,20,0),
+                  child: Text(
+                    _aboutMeString,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      height: 1.6,
+                    ),
                   ),
                 ),
               ),
