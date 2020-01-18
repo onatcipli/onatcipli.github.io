@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:onatcipli_github_io/constants/constants.dart';
 
 class ProjectModel {
   final String name;

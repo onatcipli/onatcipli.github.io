@@ -20,28 +20,17 @@ class UserCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: CustomPaint(
-                    foregroundPainter:
-                        PaintTriangle(backgroundColor: Theme.of(context).backgroundColor),
-                  ),
+          Flexible(
+            flex:1,
+            child: Center(
+              child: Container(
+                width: width,
+                height: width,
+                child: CircleAvatar(
+                  backgroundColor: Theme.of(context).cardColor,
+                  backgroundImage: NetworkImage(profileImageUrl),
                 ),
-                Container(
-                  width: width,
-                  height: width,
-                  child: CircleAvatar(
-                    backgroundColor: Theme.of(context).cardColor,
-                    backgroundImage: NetworkImage(profileImageUrl),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
           Expanded(
@@ -69,11 +58,8 @@ class UserCard extends StatelessWidget {
                 SocialMediaBar(
                   iconSizes: width / 6,
                 ),
-                Expanded(
-                  child: Container(),
-                ),
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Center(
                     child: Column(
                       children: <Widget>[

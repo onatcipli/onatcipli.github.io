@@ -18,7 +18,7 @@ class PaintTriangle extends CustomPainter {
     path
       ..moveTo(0, y)
       ..lineTo(0, y / 1.2)
-      ..lineTo((x / 2), y / 1.5)
+      ..lineTo((x / 2), y / 2)
       ..lineTo(x, y / 1.2)
       ..lineTo(x, y);
 
