@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:onatcipli_github_io/constants/constants.dart';
 import 'package:onatcipli_github_io/widgets/custom_divider.dart';
 
 import 'package:responsive_builder/responsive_builder.dart';
 
 class AboutView extends StatelessWidget {
-  final String _aboutMeString =
-      "I'm a software engineer who specializes in Cross-Platform Mobile Application Development. I have experience with cross-platform frameworks such as Ionic, React Native and Flutter. I have been working in a Corporate Company in Turkey on Cross-Platform mobile development for nearly 15 months. The company that I am working for provides business solutions, I have participated in 3 mobile projects which are developed with Ionic and Flutter. In these projects, I experienced to manage the requirements and tasks with Asana, Trello, and Jira. I can easily work with rest APIS and real-time databases. On the other hand, I’m giving public speeches and writing articles about Flutter.";
-
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -43,7 +41,7 @@ class AboutView extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                       child: Text(
-                        _aboutMeString,
+                        aboutMeString,
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                           height: 1.6,

@@ -19,17 +19,16 @@ class UserCard extends StatelessWidget {
       elevation: 8,
       child: Column(
         mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Flexible(
-            flex: 1,
-            child: Center(
-              child: Container(
-                width: width,
-                height: width,
-                child: CircleAvatar(
-                  backgroundColor: Theme.of(context).cardColor,
-                  backgroundImage: NetworkImage(profileImageUrl),
-                ),
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Container(
+              width: width,
+              height: width,
+              child: CircleAvatar(
+                backgroundColor: Theme.of(context).cardColor,
+                backgroundImage: NetworkImage(profileImageUrl),
               ),
             ),
           ),
@@ -57,28 +56,6 @@ class UserCard extends StatelessWidget {
                 ),
                 SocialMediaBar(
                   iconSizes: width / 6,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: Column(
-                      children: <Widget>[
-                        Text('coming soon'),
-                        CountdownFormatted(
-                          duration: DateTime(2020).difference(DateTime.now()),
-                          onFinish: () {
-                            print('finished!');
-                          },
-                          builder: (BuildContext ctx, String remaining) {
-                            return Text(
-                              remaining,
-                              style: Theme.of(context).textTheme.body1,
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ],
             ),

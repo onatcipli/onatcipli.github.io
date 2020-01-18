@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onatcipli_github_io/pages/about_view.dart';
+import 'package:onatcipli_github_io/constants/constants.dart';
 import 'package:onatcipli_github_io/pages/flutter_view.dart';
 import 'package:onatcipli_github_io/widgets/user_card.dart';
 
@@ -11,7 +11,7 @@ class MobileView extends StatefulWidget {
 class _MobileViewState extends State<MobileView> {
   List pages = [
     UserCard(),
-    FlutterView(),
+    Card(elevation:8,child: FlutterView()),
   ];
 
   var _controller = PageController();
@@ -26,58 +26,58 @@ class _MobileViewState extends State<MobileView> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Stack(
-        children: <Widget>[
-          PageView.builder(
-            controller: _controller,
-            itemCount: pages.length,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (BuildContext context, int index) {
-              return pages.elementAt(index);
-            },
-          ),
-          Positioned(
-            right: 0,
-            bottom: 0,
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: FloatingActionButton(
-                    backgroundColor: Theme.of(context).backgroundColor.withAlpha(5),
-                    onPressed: () {
-                      if (_currentPage != 0) {
-                        _currentPage -= 1;
-                        _controller.animateToPage(_currentPage,
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeInCubic);
-                      }
-                    },
-                    child: Icon(Icons.arrow_upward),
-                  ),
+    return Stack(
+      children: <Widget>[
+        PageView.builder(
+          controller: _controller,
+          itemCount: pages.length,
+          onPageChanged: (_index){
+            _currentPage = _index;
+          },
+          scrollDirection: Axis.vertical,
+          itemBuilder: (BuildContext context, int index) {
+            return pages.elementAt(index);
+          },
+        ),
+        Positioned(
+          right: 0,
+          bottom: 0,
+          child: Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FloatingActionButton(
+                  backgroundColor: Theme.of(context).backgroundColor,
+                  onPressed: () {
+                    if (_currentPage != 0) {
+                      _currentPage -= 1;
+                      _controller.animateToPage(_currentPage,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInCubic);
+                    }
+                  },
+                  child: Icon(Icons.arrow_upward),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: FloatingActionButton(
-                    backgroundColor: Theme.of(context).backgroundColor,
-                    onPressed: () {
-                      if (_currentPage != pages.length) {
-                        _currentPage += 1;
-                        _controller.animateToPage(_currentPage,
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeInCubic);
-                      }
-                    },
-                    child: Icon(Icons.arrow_downward),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FloatingActionButton(
+                  backgroundColor: Theme.of(context).backgroundColor,
+                  onPressed: () {
+                    if (_currentPage != pages.length) {
+                      _currentPage += 1;
+                      _controller.animateToPage(_currentPage,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInCubic);
+                    }
+                  },
+                  child: Icon(Icons.arrow_downward),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
