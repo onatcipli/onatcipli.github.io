@@ -26,19 +26,19 @@ class UserCard extends StatelessWidget {
               alignment: Alignment.center,
               children: <Widget>[
                 Container(
-                  width: width,
-                  height: width,
-                  child: CircleAvatar(
-                    backgroundColor: Theme.of(context).cardColor,
-                    backgroundImage: NetworkImage(profileImageUrl),
-                  ),
-                ),
-                Container(
                   width: double.infinity,
                   height: double.infinity,
                   child: CustomPaint(
                     foregroundPainter:
                         PaintTriangle(backgroundColor: Theme.of(context).backgroundColor),
+                  ),
+                ),
+                Container(
+                  width: width,
+                  height: width,
+                  child: CircleAvatar(
+                    backgroundColor: Theme.of(context).cardColor,
+                    backgroundImage: NetworkImage(profileImageUrl),
                   ),
                 ),
               ],
