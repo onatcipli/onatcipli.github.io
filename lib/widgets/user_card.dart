@@ -8,7 +8,7 @@ import 'package:onatcipli_github_io/widgets/social_media_bar.dart';
 class UserCard extends StatelessWidget {
   const UserCard({
     Key key,
-    @required this.width,
+    @required this.width = 150,
   }) : super(key: key);
 
   final double width;
@@ -21,7 +21,7 @@ class UserCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           Flexible(
-            flex:1,
+            flex: 1,
             child: Center(
               child: Container(
                 width: width,

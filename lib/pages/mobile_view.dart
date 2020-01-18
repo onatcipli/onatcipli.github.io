@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:onatcipli_github_io/constants/constants.dart';
+import 'package:onatcipli_github_io/pages/about_view.dart';
+import 'package:onatcipli_github_io/pages/flutter_view.dart';
 import 'package:onatcipli_github_io/widgets/user_card.dart';
 
 class MobileView extends StatefulWidget {
@@ -8,19 +9,74 @@ class MobileView extends StatefulWidget {
 }
 
 class _MobileViewState extends State<MobileView> {
+  List pages = [
+    UserCard(),
+    FlutterView(),
+  ];
+
+  var _controller = PageController();
+
+  int _currentPage;
+
+  @override
+  void initState() {
+    _currentPage = 0;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Center(
-        child: Container(
-          width: 150,
-          height: 150,
-          child: CircleAvatar(
-            backgroundColor: Theme.of(context).cardColor,
-            backgroundImage: NetworkImage(profileImageUrl),
+      child: Stack(
+        children: <Widget>[
+          PageView.builder(
+            controller: _controller,
+            itemCount: pages.length,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (BuildContext context, int index) {
+              return pages.elementAt(index);
+            },
           ),
-        ),
+          Positioned(
+            right: 0,
+            bottom: 0,
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FloatingActionButton(
+                    backgroundColor: Theme.of(context).backgroundColor.withAlpha(5),
+                    onPressed: () {
+                      if (_currentPage != 0) {
+                        _currentPage -= 1;
+                        _controller.animateToPage(_currentPage,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeInCubic);
+                      }
+                    },
+                    child: Icon(Icons.arrow_upward),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FloatingActionButton(
+                    backgroundColor: Theme.of(context).backgroundColor,
+                    onPressed: () {
+                      if (_currentPage != pages.length) {
+                        _currentPage += 1;
+                        _controller.animateToPage(_currentPage,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeInCubic);
+                      }
+                    },
+                    child: Icon(Icons.arrow_downward),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -44,7 +100,7 @@ class _MobileViewState extends State<MobileView> {
           return UserCard(
             width: 100,
           );
-        }  else if (constrains.maxWidth > 100) {
+        } else if (constrains.maxWidth > 100) {
           return UserCard(
             width: 60,
           );
