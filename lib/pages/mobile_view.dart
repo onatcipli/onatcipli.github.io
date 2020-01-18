@@ -49,12 +49,9 @@ class _MobileViewState extends State<MobileView> {
                 child: FloatingActionButton(
                   backgroundColor: Theme.of(context).backgroundColor,
                   onPressed: () {
-                    if (_currentPage != 0) {
-                      _currentPage -= 1;
-                      _controller.animateToPage(_currentPage,
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeInCubic);
-                    }
+                    _controller.previousPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeInCubic);
                   },
                   child: Icon(Icons.arrow_upward),
                 ),
@@ -64,14 +61,11 @@ class _MobileViewState extends State<MobileView> {
                 child: FloatingActionButton(
                   backgroundColor: Theme.of(context).backgroundColor,
                   onPressed: () {
-                    if (_currentPage != pages.length) {
-                      _currentPage += 1;
-                      _controller.animateToPage(_currentPage,
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeInCubic);
-                    }
+                    _controller.nextPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeInCubic);
                   },
-                  child: Icon(Icons.arrow_downward),
+                  child: Icon(Icons.arrow_downward,color: Theme.of(context).hoverColor,),
                 ),
               ),
             ],
