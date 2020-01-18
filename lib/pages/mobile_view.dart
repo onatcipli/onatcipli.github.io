@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:onatcipli_github_io/constants/constants.dart';
 import 'package:onatcipli_github_io/pages/flutter_view.dart';
 import 'package:onatcipli_github_io/widgets/user_card.dart';
 
@@ -16,11 +15,8 @@ class _MobileViewState extends State<MobileView> {
 
   var _controller = PageController();
 
-  int _currentPage;
-
   @override
   void initState() {
-    _currentPage = 0;
     super.initState();
   }
 
@@ -31,9 +27,6 @@ class _MobileViewState extends State<MobileView> {
         PageView.builder(
           controller: _controller,
           itemCount: pages.length,
-          onPageChanged: (_index){
-            _currentPage = _index;
-          },
           scrollDirection: Axis.vertical,
           itemBuilder: (BuildContext context, int index) {
             return pages.elementAt(index);

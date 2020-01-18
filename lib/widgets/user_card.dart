@@ -23,14 +23,9 @@ class UserCard extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(32.0),
-            child: Container(
-              width: width,
-              height: width,
-              child: CircleAvatar(
-                backgroundColor: Theme.of(context).cardColor,
-                backgroundImage: NetworkImage(profileImageUrl),
-              ),
-            ),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(profileImageUrl)),
           ),
           Expanded(
             flex: 1,
