@@ -35,12 +35,12 @@ class _DesktopViewState extends State<DesktopView>
         Expanded(
           flex: 2,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(40.0, 60, 0, 60),
+            padding: const EdgeInsets.fromLTRB(40.0, 30, 0, 30),
             child: LayoutBuilder(
               builder: (context, constrains) {
                 if (constrains.maxWidth > 450) {
                   return UserCard(
-                    width: 210,
+                    width: 310,
                   );
                 } else if (constrains.maxWidth > 350) {
                   return UserCard(
