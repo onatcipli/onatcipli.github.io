@@ -1,10 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:onatcipli_github_io/constants/constants.dart';
+import 'package:onatcipli_github_io/main.dart';
 import 'package:onatcipli_github_io/widgets/custom_divider.dart';
 
 import 'package:responsive_builder/responsive_builder.dart';
 
 class AboutView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveBuilder(
+      builder: (BuildContext context, SizingInformation sizingInformation) {
+        if (sizingInformation.isDesktop || sizingInformation.isTablet) {
+          return AboutViewDesktop();
+        } else {
+          return AboutViewMobile();
+        }
+      },
+    );
+  }
+}
+
+class AboutViewMobile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 8,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'About Me',
+                style: Theme.of(context).textTheme.title,
+              ),
+            ),
+          ),
+          ResponsiveBuilder(
+            builder:
+                (BuildContext context, SizingInformation sizingInformation) {
+              return CustomDivider(
+                sizingInformation: sizingInformation,
+              );
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              currentUser.aboutMe,
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                height: 1.6,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AboutViewDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(

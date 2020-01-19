@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onatcipli_github_io/pages/about_view.dart';
 import 'package:onatcipli_github_io/pages/flutter_view.dart';
 import 'package:onatcipli_github_io/widgets/user_card.dart';
 
@@ -10,6 +11,7 @@ class MobileView extends StatefulWidget {
 class _MobileViewState extends State<MobileView> {
   List pages = [
     UserCard(),
+    AboutView(),
     Card(elevation:8,child: FlutterView()),
   ];
 
@@ -26,6 +28,7 @@ class _MobileViewState extends State<MobileView> {
       children: <Widget>[
         PageView.builder(
           controller: _controller,
+          physics: BouncingScrollPhysics(),
           itemCount: pages.length,
           scrollDirection: Axis.vertical,
           itemBuilder: (BuildContext context, int index) {

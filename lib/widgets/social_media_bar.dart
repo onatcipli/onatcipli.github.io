@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onatcipli_github_io/main.dart';
 import 'package:social_media_buttons/social_media_buttons.dart';
 import 'package:onatcipli_github_io/widgets/hover_detector.dart';
 
@@ -18,27 +19,27 @@ class SocialMediaBar extends StatelessWidget {
           HoverButton(
             iconSizes: iconSizes,
             iconData: SocialMediaIcons.github_circled,
-            url: 'https://github.com/onatcipli',
+            url: currentUser.github,
           ),
           HoverButton(
             iconSizes: iconSizes,
             iconData: SocialMediaIcons.stackoverflow,
-            url: 'https://stackoverflow.com/users/10685785/cipli-onat',
+            url: currentUser.stackoverflow,
           ),
           HoverButton(
             iconSizes: iconSizes,
             iconData: SocialMediaIcons.twitter,
-            url: 'https://twitter.com/CipliOnat',
+            url: currentUser.twitter,
           ),
           HoverButton(
             iconSizes: iconSizes,
             iconData: SocialMediaIcons.linkedin,
-            url: 'https://www.linkedin.com/in/onat-%C3%A7ipli/',
+            url: currentUser.linkedin,
           ),
           HoverButton(
             iconSizes: iconSizes,
             iconData: SocialMediaIcons.medium,
-            url: 'https://medium.com/@ciplionat35',
+            url: currentUser.medium,
           ),
         ],
       ),

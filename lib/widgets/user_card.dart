@@ -2,6 +2,7 @@ import 'package:countdown_flutter/countdown_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:onatcipli_github_io/constants/constants.dart';
 import 'package:onatcipli_github_io/constants/dark_theme.dart';
+import 'package:onatcipli_github_io/main.dart';
 import 'package:onatcipli_github_io/widgets/paint_triangel.dart';
 import 'package:onatcipli_github_io/widgets/social_media_bar.dart';
 
@@ -25,7 +26,7 @@ class UserCard extends StatelessWidget {
             padding: const EdgeInsets.all(32.0),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.network(profileImageUrl)),
+                child: Image.network(currentUser.profileImageUrl)),
           ),
           Expanded(
             flex: 1,
@@ -34,7 +35,7 @@ class UserCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Onat Çipli',
+                    currentUser.name,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.title,
                   ),
@@ -42,7 +43,7 @@ class UserCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Mobile Developer',
+                    currentUser.title,
                     style: Theme.of(context).textTheme.body2,
                   ),
                 ),
