@@ -25,10 +25,10 @@ class ProfileView extends StatelessWidget {
             foregroundPainter: TheForegroundPainter(
               50,
               (profileCubit.state as ProfileInitial).removeOffsets,
-              color: Colors.amber,
+              color: Theme.of(context).secondaryHeaderColor,
             ),
             child: Container(
-              color: Colors.blue,
+              color: Theme.of(context).scaffoldBackgroundColor,
               child: Center(child: Text('here')),
             ),
           ),
