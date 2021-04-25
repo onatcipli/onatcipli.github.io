@@ -6,10 +6,11 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:onatcipli_github_io/counter/counter.dart';
 import 'package:onatcipli_github_io/l10n/l10n.dart';
 import 'package:onatcipli_github_io/profile/profile.dart';
+import 'package:onatcipli_github_io/the_avatar/cubit/the_avatar_cubit.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -23,7 +24,10 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: ProfilePage(),
+      home: BlocProvider(
+        create: (context) => TheAvatarCubit(),
+        child: ProfilePage(),
+      ),
     );
   }
 }

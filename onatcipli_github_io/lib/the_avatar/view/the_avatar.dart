@@ -2,7 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:onatcipli_github_io/profile/cubit/profile_cubit.dart';
+import 'package:onatcipli_github_io/the_avatar/cubit/the_avatar_cubit.dart';
 
 class TheAvatar extends StatefulWidget {
   @override
@@ -29,6 +29,8 @@ class _TheAvatarState extends State<TheAvatar> with TickerProviderStateMixin {
 
   late Offset nextOffset;
   bool longPressActive = false;
+
+  var scale = 1.0;
 
   @override
   void initState() {
@@ -94,34 +96,46 @@ class _TheAvatarState extends State<TheAvatar> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      key: _globalKey,
-      left: longPressActive
-          ? (offsetAnimation.value as Offset).dx
-          : 4 * 2 * (offsetAnimation.value as Offset).dx,
-      top: longPressActive
-          ? (offsetAnimation.value as Offset).dy
-          : ((offsetAnimation.value as Offset).dy *
-          (offsetAnimation.value as Offset).dy),
-      child: GestureDetector(
-        onLongPressMoveUpdate: onLongPressMoveUpdate,
-        onLongPressStart: onLongPressStart,
-        onLongPressEnd: onLongPressEnd,
-        onPanStart: onPanStart,
-        onPanEnd: onPanEnd,
-        onPanUpdate: onPanUpdate,
-        child: CircleAvatar(
-          backgroundImage: const NetworkImage(
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGf1xTQLvI3AJz_moWk5Uj8baR9B0ffwSGyuxn9jdgiEf-fEpC',
+    return BlocListener<TheAvatarCubit, TheAvatarState>(
+      listener: (BuildContext context, state) {
+        if (state is TheAvatarInitial && state.nextOffset != null) {
+          nextOffset = state.nextOffset!;
+          longPressActive = true;
+          setState(() {});
+          setAnimation();
+          offsetController.forward(from: .1);
+        }
+      },
+      child: Positioned(
+        key: _globalKey,
+        left: longPressActive
+            ? (offsetAnimation.value as Offset).dx
+            : 4 * 2 * (offsetAnimation.value as Offset).dx,
+        top: longPressActive
+            ? (offsetAnimation.value as Offset).dy
+            : ((offsetAnimation.value as Offset).dy *
+                (offsetAnimation.value as Offset).dy),
+        child: Transform.scale(
+          scale: scale,
+          child: GestureDetector(
+            onLongPressMoveUpdate: onLongPressMoveUpdate,
+            onLongPressStart: onLongPressStart,
+            onLongPressEnd: onLongPressEnd,
+            onPanStart: onPanStart,
+            onPanEnd: onPanEnd,
+            onPanUpdate: onPanUpdate,
+            child: CircleAvatar(
+              backgroundImage: const NetworkImage(
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGf1xTQLvI3AJz_moWk5Uj8baR9B0ffwSGyuxn9jdgiEf-fEpC',
+              ),
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+              ),
+              minRadius: minRadius(),
+              maxRadius: minRadius(),
+              backgroundColor: Theme.of(context).primaryColorDark,
+            ),
           ),
-          child: const Padding(
-            padding: EdgeInsets.all(8.0),
-          ),
-          minRadius: minRadius(),
-          maxRadius: minRadius(),
-          backgroundColor: Theme
-              .of(context)
-              .primaryColorDark,
         ),
       ),
     );
@@ -136,6 +150,8 @@ class _TheAvatarState extends State<TheAvatar> with TickerProviderStateMixin {
   void onPanUpdate(DragUpdateDetails details) {}
 
   void onLongPressStart(LongPressStartDetails details) {
+    scale = 1.2;
+    setState(() {});
     log(details);
     local = details.localPosition;
     handleUpdate(details);
@@ -151,7 +167,11 @@ class _TheAvatarState extends State<TheAvatar> with TickerProviderStateMixin {
 
   void handleUpdate(details) {
     longPressActive = true;
-    var dx = details.globalPosition.dx - local.dx;
+    final size = MediaQuery.of(context).size;
+    // if (!checkPoint(details.globalPosition, minRadius(), size, minRadius())) {
+    //   return;
+    // }
+    var dx = (details.globalPosition.dx - local.dx) as double;
     var dy = details.globalPosition.dy - local.dy;
     nextOffset = Offset(dx, dy);
     setAnimation();
@@ -162,12 +182,24 @@ class _TheAvatarState extends State<TheAvatar> with TickerProviderStateMixin {
 
   void handleLocationChanges() {
     var findRenderObject =
-    _globalKey.currentContext!.findRenderObject() as RenderBox;
+        _globalKey.currentContext!.findRenderObject() as RenderBox;
     var h = findRenderObject.size.height / 2;
     var w = findRenderObject.size.width / 2;
     currentCenter = findRenderObject.localToGlobal(Offset(w, h));
+    final size = MediaQuery.of(context).size;
+    // if (checkPoint(currentCenter, w, size, h)) {
     removeOffsets.add(currentCenter);
-    context.read<ProfileCubit>().addRemoveOffsets(removeOffsets);
+    context.read<TheAvatarCubit>().addRemoveOffsets(
+          removeOffsets,
+        );
+    // }
+  }
+
+  bool checkPoint(Offset _currentCenter, double w, Size size, double h) {
+    return (_currentCenter.dx + (w / 2)) < size.width &&
+        (_currentCenter.dx - (w / 2)) > 0 &&
+        (_currentCenter.dy + (h / 2)) < size.height &&
+        (_currentCenter.dy - (h / 2)) > 0;
   }
 
   void onLongPressMoveUpdate(LongPressMoveUpdateDetails details) {
@@ -176,6 +208,9 @@ class _TheAvatarState extends State<TheAvatar> with TickerProviderStateMixin {
   }
 
   void onLongPressEnd(LongPressEndDetails details) {
+    scale = 1.0;
+    setState(() {});
+
     handleUpdate(details);
     setState(() {});
   }

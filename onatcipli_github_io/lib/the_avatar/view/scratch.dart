@@ -1,9 +1,38 @@
 import 'package:flutter/material.dart';
 
-class TheForegroundPainter extends CustomPainter {
-  TheForegroundPainter(
-    this.strokeWidth,
-    this.removeOffsets, {
+class Scratcher extends StatelessWidget {
+  const Scratcher({
+    Key? key,
+    required this.removeOffsets,
+    required this.strokeWidth,
+    required this.child,
+    this.color,
+  }) : super(key: key);
+
+  final List<Offset> removeOffsets;
+
+  final double strokeWidth;
+  final Color? color;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final _color = color ?? Theme.of(context).scaffoldBackgroundColor;
+    return CustomPaint(
+      foregroundPainter: ScratchPainter(
+        removeOffsets: removeOffsets,
+        color: _color,
+        strokeWidth: strokeWidth,
+      ),
+      child: child,
+    );
+  }
+}
+
+class ScratchPainter extends CustomPainter {
+  ScratchPainter({
+    required this.strokeWidth,
+    required this.removeOffsets,
     required this.color,
   });
 
@@ -32,7 +61,7 @@ class TheForegroundPainter extends CustomPainter {
     );
     final _removePaint = Paint()
       ..color = Colors.transparent
-      ..strokeWidth=strokeWidth* 2
+      ..strokeWidth = strokeWidth * 2
       ..blendMode = BlendMode.src;
     for (var i = 0; i < removeOffsets.length; i++) {
       final offset = removeOffsets.elementAt(i);
@@ -51,6 +80,8 @@ class TheForegroundPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+    return (oldDelegate as ScratchPainter).color != color ||
+        oldDelegate.strokeWidth != strokeWidth ||
+        oldDelegate.removeOffsets.length != removeOffsets.length;
   }
 }
