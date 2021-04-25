@@ -1,8 +1,9 @@
-import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:onatcipli_github_io/profile/cubit/profile_cubit.dart';
+import 'package:onatcipli_github_io/profile/view/the_foreground_painter.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -29,7 +30,7 @@ class ProfileView extends StatelessWidget {
             ),
             child: Container(
               color: Theme.of(context).scaffoldBackgroundColor,
-              child: Center(child: Text('here')),
+              child: const Center(child: Text('here')),
             ),
           ),
           TheAvatar(),
@@ -39,90 +40,99 @@ class ProfileView extends StatelessWidget {
   }
 }
 
-class TheForegroundPainter extends CustomPainter {
-  TheForegroundPainter(
-    this.strokeWidth,
-    this.removeOffsets, {
-    required this.color,
-  });
-
-  final List<Offset> removeOffsets;
-
-  final double strokeWidth;
-  final Color color;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    canvas.saveLayer(null, Paint());
-
-    var paint = Paint()
-      ..strokeWidth = strokeWidth
-      ..color = color;
-
-    canvas.drawRect(
-      Rect.fromPoints(
-        Offset.zero,
-        Offset(
-          size.width,
-          size.height,
-        ),
-      ),
-      paint,
-    );
-    final _removePaint = Paint()
-      ..color = Colors.transparent
-      ..blendMode = BlendMode.src;
-    for (final offset in removeOffsets) {
-      canvas.drawCircle(offset, strokeWidth, _removePaint);
-    }
-
-    canvas.restore();
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
-  }
-}
-
 class TheAvatar extends StatefulWidget {
   @override
   _TheAvatarState createState() => _TheAvatarState();
 }
 
 class _TheAvatarState extends State<TheAvatar> with TickerProviderStateMixin {
+  late AnimationController offsetController;
+  late Animation offsetAnimation;
+  late AnimationController idleController;
+  late Animation idleAnimation;
   List<Offset> removeOffsets = [];
-  double top = -100;
-  double left = 50;
 
   Offset local = Offset.zero;
 
-  var duration = const Duration(milliseconds: 1800);
+  var duration = const Duration(milliseconds: 1200);
 
   final _globalKey = GlobalKey();
 
+  Offset currentCenter = const Offset(
+    500,
+    -300,
+  );
+
+  late Offset nextOffset;
+
   @override
   void initState() {
+    nextOffset = const Offset(
+      5,
+      10,
+    );
+    offsetController = AnimationController(vsync: this, duration: duration);
+    idleController = AnimationController(
+      vsync: this,
+      duration: const Duration(
+        milliseconds: 300,
+      ),
+    );
+    setAnimation();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-      setState(() {
-        top = 100;
+      offsetController.forward().then((value) async {
+        // duration = const Duration(milliseconds: 0);
+        setIdleAnimation();
+        // idleController.repeat(period: Duration(milliseconds: 1000),reverse: true);
+        // await offsetController.reverse(from: .1);
       });
-      Future.delayed(duration).then((value) {
-        duration = const Duration(milliseconds: 0);
-        setState(() {});
-      });
+    });
+
+    idleController.addListener(() {
+      setState(() {});
+      setIdleAnimation();
+    });
+    offsetController.addListener(() {
+      handleLocationChanges();
+      setState(() {});
     });
     super.initState();
   }
 
+  void setAnimation() {
+    offsetAnimation = Tween<Offset>(
+      begin: currentCenter,
+      end: nextOffset,
+    ).animate(
+      CurvedAnimation(
+        parent: offsetController,
+        curve: Curves.linearToEaseOut,
+      ),
+    );
+  }
+
+  void setIdleAnimation() {
+    final random = math.Random();
+    var nextInt = random.nextInt(4);
+    final plus = random.nextBool();
+    final value = plus == true ? nextInt * (1.0) : nextInt * (-1.0);
+    idleAnimation = Tween<Offset>(
+      begin: currentCenter,
+      end: currentCenter.translate(value, value),
+    ).animate(
+      CurvedAnimation(
+        parent: idleController,
+        curve: Curves.bounceInOut,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return AnimatedPositioned(
+    return Positioned(
       key: _globalKey,
-      duration: duration,
-      curve: Curves.elasticOut,
-      left: left,
-      top: top,
+      left: 4 * 2 * (offsetAnimation.value as Offset).dx,
+      top: ((offsetAnimation.value as Offset).dy * (offsetAnimation.value as Offset).dy),
       child: GestureDetector(
         onLongPressMoveUpdate: onLongPressMoveUpdate,
         onLongPressStart: onLongPressStart,
@@ -135,7 +145,7 @@ class _TheAvatarState extends State<TheAvatar> with TickerProviderStateMixin {
             'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGf1xTQLvI3AJz_moWk5Uj8baR9B0ffwSGyuxn9jdgiEf-fEpC',
           ),
           child: const Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
           ),
           minRadius: minRadius(),
           maxRadius: minRadius(),
@@ -168,14 +178,22 @@ class _TheAvatarState extends State<TheAvatar> with TickerProviderStateMixin {
   }
 
   void handleUpdate(details) {
-    left = details.globalPosition.dx - local.dx;
-    top = details.globalPosition.dy - local.dy;
+    var dx = details.globalPosition.dx - local.dx;
+    var dy = details.globalPosition.dy - local.dy;
+    nextOffset = Offset(dx, dy);
+    setAnimation();
+    setState(() {});
+    offsetController.forward(from: .9);
+    // handleLocationChanges();
+  }
+
+  void handleLocationChanges() {
     var findRenderObject =
         _globalKey.currentContext!.findRenderObject() as RenderBox;
     var h = findRenderObject.size.height / 2;
     var w = findRenderObject.size.width / 2;
-    var localToGlobal = findRenderObject.localToGlobal(Offset(w, h));
-    removeOffsets.add(localToGlobal);
+    currentCenter = findRenderObject.localToGlobal(Offset(w, h));
+    removeOffsets.add(currentCenter);
     context.read<ProfileCubit>().addRemoveOffsets(removeOffsets);
   }
 

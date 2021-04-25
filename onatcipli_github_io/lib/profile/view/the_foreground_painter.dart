@@ -32,9 +32,18 @@ class TheForegroundPainter extends CustomPainter {
     );
     final _removePaint = Paint()
       ..color = Colors.transparent
+      ..strokeWidth=strokeWidth* 2
       ..blendMode = BlendMode.src;
-    for (final offset in removeOffsets) {
+    for (var i = 0; i < removeOffsets.length; i++) {
+      final offset = removeOffsets.elementAt(i);
       canvas.drawCircle(offset, strokeWidth, _removePaint);
+      if (i + 1 != removeOffsets.length) {
+        final nextOffset = removeOffsets.elementAt(i + 1);
+        if ((offset.dx.abs() - nextOffset.dx.abs()).abs() > 1 ||
+            (offset.dy.abs() - nextOffset.dy.abs()).abs() > 1) {
+          canvas..drawLine(offset, nextOffset, _removePaint);
+        }
+      }
     }
 
     canvas.restore();
