@@ -68,6 +68,19 @@
       "school": "İzmir Ekonomi Üniversitesi",
       "schoolUrl": "https://www.ieu.edu.tr",
       "degree": {
+        "en": "Master's Degree in Software Engineering (Incomplete)",
+        "tr": "Yazılım Mühendisliği Yüksek Lisans (Tamamlanmadı)"
+      },
+      "date": "2019 - 2020",
+      "description": {
+        "en": "Completed 1 year of Master's program before leaving to focus on career opportunities. Studied advanced software engineering topics.",
+        "tr": "Kariyer fırsatlarına odaklanmak için ayrılmadan önce Yüksek Lisans programının 1 yılını tamamladım. İleri düzey yazılım mühendisliği konularını çalıştım."
+      }
+    },
+    {
+      "school": "İzmir Ekonomi Üniversitesi",
+      "schoolUrl": "https://www.ieu.edu.tr",
+      "degree": {
         "en": "Bachelor's Degree in Software Engineering",
         "tr": "Yazılım Mühendisliği Lisans"
       },
