@@ -557,8 +557,11 @@
                     });
                 }
             });
-            // Sort by startDate descending (newest first)
+            // Sort by order field (ascending), fallback to startDate descending
             return projects.sort((a, b) => {
+                if (a.order !== undefined && b.order !== undefined) {
+                    return a.order - b.order;
+                }
                 const dateA = a.startDate || '0000-00';
                 const dateB = b.startDate || '0000-00';
                 return dateB.localeCompare(dateA);
