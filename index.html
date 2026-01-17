@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio - Senior Mobile Developer specializing in Flutter, iOS, and Android development">
-    <title>Portfolio</title>
+    <meta name="description" content="Onat Çipli - Senior Mobile Developer specializing in Flutter, iOS, and Android development">
+    <title>Onat Çipli - Senior Mobile Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -107,20 +107,55 @@
             color: var(--text-secondary);
         }
 
-        .experience-item { margin-bottom: 40px; }
+        /* Experience */
+        .experience-item { margin-bottom: 48px; }
         .experience-item:last-child { margin-bottom: 0; }
         .experience-header {
             display: flex; justify-content: space-between; align-items: flex-start;
             margin-bottom: 8px; flex-wrap: wrap; gap: 8px;
         }
-        .experience-header h3 { font-size: 1.1rem; font-weight: 600; }
+        .experience-header h3 { font-size: 1.2rem; font-weight: 600; }
         .experience-header .company { color: var(--accent); text-decoration: none; }
         .experience-header .company:hover { text-decoration: underline; }
         .experience-header .date { color: var(--text-muted); font-size: 0.9rem; }
-        .experience-description { color: var(--text-secondary); }
-        .experience-description ul { margin-top: 12px; padding-left: 20px; }
-        .experience-description li { margin-bottom: 6px; }
+        .experience-location { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px; }
+        .experience-description { color: var(--text-secondary); margin-bottom: 16px; }
 
+        /* Projects within experience */
+        .exp-projects { margin-top: 20px; }
+        .exp-project {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .exp-project:last-child { margin-bottom: 0; }
+        .exp-project-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+        .exp-project-name { font-weight: 600; font-size: 1rem; }
+        .exp-project-name a { color: var(--accent); text-decoration: none; }
+        .exp-project-name a:hover { text-decoration: underline; }
+        .exp-project-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .exp-project-tag {
+            background: var(--bg-primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .exp-project-desc { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* Education */
+        .education-item { margin-bottom: 32px; }
+        .education-item:last-child { margin-bottom: 0; }
+        .education-header { margin-bottom: 8px; }
+        .education-header h3 { font-size: 1.1rem; font-weight: 600; }
+        .education-header h3 a { color: var(--accent); text-decoration: none; }
+        .education-header h3 a:hover { text-decoration: underline; }
+        .education-degree { color: var(--text-secondary); }
+        .education-date { color: var(--text-muted); font-size: 0.9rem; }
+        .education-description { color: var(--text-secondary); margin: 12px 0; font-size: 0.95rem; }
+
+        /* Personal Projects Grid */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
         .project-card {
             border: 1px solid var(--border);
@@ -140,6 +175,7 @@
         .project-links a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
         .project-links a:hover { text-decoration: underline; }
 
+        /* Open Source */
         .repo-list { display: flex; flex-direction: column; gap: 16px; }
         .repo-card {
             border: 1px solid var(--border);
@@ -201,14 +237,13 @@
     </div>
 
     <script>
-        // Language colors for programming languages
         const langColors = {
             'Dart': '#00B4AB', 'Swift': '#F05138', 'Kotlin': '#A97BFF',
             'TypeScript': '#3178C6', 'JavaScript': '#F7DF1E', 'Python': '#3572A5',
-            'Go': '#00ADD8', 'Rust': '#DEA584', 'Java': '#B07219', 'C++': '#F34B7D'
+            'Go': '#00ADD8', 'Rust': '#DEA584', 'Java': '#B07219', 'C++': '#F34B7D',
+            'C#': '#178600'
         };
 
-        // SVG Icons
         const icons = {
             github: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>',
             linkedin: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
@@ -223,18 +258,35 @@
         let currentLang = localStorage.getItem('lang') || 'en';
         let currentTheme = localStorage.getItem('theme') || 'light';
 
-        // Get localized text
         function t(obj, fallback = '') {
             if (!obj) return fallback;
             if (typeof obj === 'string') return obj;
             return obj[currentLang] || obj['en'] || fallback;
         }
 
-        // Render the entire page
+        function renderExpProjects(projects) {
+            if (!projects || !projects.length) return '';
+            return `
+                <div class="exp-projects">
+                    ${projects.map(proj => `
+                        <div class="exp-project">
+                            <div class="exp-project-header">
+                                <span class="exp-project-name">${proj.url ? `<a href="${proj.url}" target="_blank">${t(proj.name)}</a>` : t(proj.name)}</span>
+                                <div class="exp-project-tags">
+                                    ${proj.tags.map(tag => `<span class="exp-project-tag">${tag}</span>`).join('')}
+                                </div>
+                            </div>
+                            <p class="exp-project-desc">${t(proj.description)}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
         function render() {
             if (!content) return;
 
-            const { meta, skills, experience, projects, opensource } = content;
+            const { meta, skills, experience, education, projects, opensource } = content;
             const lang = content[currentLang] || content['en'];
 
             document.title = `${meta.name} - ${lang.title}`;
@@ -273,20 +325,33 @@
                         <div class="experience-item">
                             <div class="experience-header">
                                 <h3>${t(exp.role)} @ ${exp.companyUrl ? `<a href="${exp.companyUrl}" target="_blank" class="company">${exp.company}</a>` : `<span class="company">${exp.company}</span>`}</h3>
-                                <span class="date">${exp.date}</span>
+                                <span class="date">${t(exp.date)}</span>
                             </div>
-                            <div class="experience-description">
-                                <p>${t(exp.description)}</p>
-                                ${exp.tasks && t(exp.tasks).length ? `
-                                    <ul>
-                                        ${t(exp.tasks).map(task => `<li>${task}</li>`).join('')}
-                                    </ul>
-                                ` : ''}
-                            </div>
+                            ${exp.location ? `<div class="experience-location">${t(exp.location)}</div>` : ''}
+                            <p class="experience-description">${t(exp.description)}</p>
+                            ${renderExpProjects(exp.projects)}
                         </div>
                     `).join('')}
                 </section>
 
+                ${education && education.length ? `
+                <section id="education">
+                    <h2>${lang.educationTitle}</h2>
+                    ${education.map(edu => `
+                        <div class="education-item">
+                            <div class="education-header">
+                                <h3>${edu.schoolUrl ? `<a href="${edu.schoolUrl}" target="_blank">${edu.school}</a>` : edu.school}</h3>
+                            </div>
+                            <div class="education-degree">${t(edu.degree)}</div>
+                            <div class="education-date">${edu.date}</div>
+                            ${edu.description ? `<p class="education-description">${t(edu.description)}</p>` : ''}
+                            ${renderExpProjects(edu.projects)}
+                        </div>
+                    `).join('')}
+                </section>
+                ` : ''}
+
+                ${projects && projects.length ? `
                 <section id="projects">
                     <h2>${lang.projectsTitle}</h2>
                     <div class="projects-grid">
@@ -300,17 +365,19 @@
                                         ${proj.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
                                     </div>
                                     <div class="project-links">
-                                        ${proj.links.appStore ? `<a href="${proj.links.appStore}" target="_blank">App Store</a>` : ''}
-                                        ${proj.links.playStore ? `<a href="${proj.links.playStore}" target="_blank">Play Store</a>` : ''}
-                                        ${proj.links.github ? `<a href="${proj.links.github}" target="_blank">GitHub</a>` : ''}
-                                        ${proj.links.website ? `<a href="${proj.links.website}" target="_blank">Website</a>` : ''}
+                                        ${proj.links?.appStore ? `<a href="${proj.links.appStore}" target="_blank">App Store</a>` : ''}
+                                        ${proj.links?.playStore ? `<a href="${proj.links.playStore}" target="_blank">Play Store</a>` : ''}
+                                        ${proj.links?.github ? `<a href="${proj.links.github}" target="_blank">GitHub</a>` : ''}
+                                        ${proj.links?.website ? `<a href="${proj.links.website}" target="_blank">Website</a>` : ''}
                                     </div>
                                 </div>
                             </div>
                         `).join('')}
                     </div>
                 </section>
+                ` : ''}
 
+                ${opensource && opensource.length ? `
                 <section id="opensource">
                     <h2>${lang.opensourceTitle}</h2>
                     <div class="repo-list">
@@ -332,6 +399,7 @@
                         `).join('')}
                     </div>
                 </section>
+                ` : ''}
 
                 <footer>
                     <p>&copy; ${new Date().getFullYear()} ${meta.name}. ${lang.footer}</p>
@@ -359,7 +427,6 @@
             render();
         }
 
-        // Initialize
         async function init() {
             setTheme(currentTheme);
             document.getElementById('langLabel').textContent = currentLang === 'en' ? 'TR' : 'EN';
