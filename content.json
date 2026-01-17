@@ -166,6 +166,7 @@
       "projects": [
         {
           "name": "Caboodle",
+          "order": 1,
           "date": { "en": "Jan 2021 - Jan 2025", "tr": "Oca 2021 - Oca 2025" },
           "startDate": "2021-01",
           "endDate": "2025-01",
@@ -179,6 +180,7 @@
         },
         {
           "name": "Say TV",
+          "order": 4,
           "date": { "en": "Mar 2022 - Dec 2023", "tr": "Mar 2022 - Ara 2023" },
           "startDate": "2022-03",
           "endDate": "2023-12",
@@ -191,6 +193,7 @@
         },
         {
           "name": "Kids Radio",
+          "order": 6,
           "date": { "en": "Jun 2023 - Nov 2024", "tr": "Haz 2023 - Kas 2024" },
           "startDate": "2023-06",
           "endDate": "2024-11",
@@ -203,6 +206,7 @@
         },
         {
           "name": "Coosto",
+          "order": 2,
           "date": { "en": "Aug 2020 - Feb 2021", "tr": "Ağu 2020 - Şub 2021" },
           "startDate": "2020-08",
           "endDate": "2021-02",
@@ -217,6 +221,7 @@
         },
         {
           "name": "MyHome",
+          "order": 3,
           "date": { "en": "Feb 2021 - Jun 2021", "tr": "Şub 2021 - Haz 2021" },
           "startDate": "2021-02",
           "endDate": "2021-06",
@@ -229,6 +234,7 @@
         },
         {
           "name": "Irish Times",
+          "order": 5,
           "date": { "en": "Sep 2021 - Mar 2022", "tr": "Eyl 2021 - Mar 2022" },
           "startDate": "2021-09",
           "endDate": "2022-03",
@@ -241,6 +247,7 @@
         },
         {
           "name": "Business Post",
+          "order": 7,
           "date": { "en": "Apr 2022 - Aug 2022", "tr": "Nis 2022 - Ağu 2022" },
           "startDate": "2022-04",
           "endDate": "2022-08",
@@ -288,6 +295,7 @@
             "en": "Cross-Platform Framework POC",
             "tr": "Cross-Platform Framework POC"
           },
+          "order": 9,
           "date": { "en": "Jan 2019 - Jun 2019", "tr": "Oca 2019 - Haz 2019" },
           "startDate": "2019-01",
           "endDate": "2019-06",
@@ -300,6 +308,7 @@
         },
         {
           "name": "Document Management System",
+          "order": 8,
           "date": { "en": "Jun 2018 - Dec 2018", "tr": "Haz 2018 - Ara 2018" },
           "startDate": "2018-06",
           "endDate": "2018-12",
@@ -312,6 +321,7 @@
         },
         {
           "name": "Journey",
+          "order": 10,
           "date": { "en": "Jul 2019 - Mar 2020", "tr": "Tem 2019 - Mar 2020" },
           "startDate": "2019-07",
           "endDate": "2020-03",
@@ -324,6 +334,7 @@
         },
         {
           "name": "Low Code Platform",
+          "order": 11,
           "date": { "en": "Apr 2020 - Aug 2020", "tr": "Nis 2020 - Ağu 2020" },
           "startDate": "2020-04",
           "endDate": "2020-08",
