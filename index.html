@@ -82,9 +82,45 @@
             background: var(--bg-primary);
             border-bottom: 1px solid var(--border);
             padding: 12px 24px;
-            display: flex; justify-content: flex-end; gap: 16px;
+            display: flex; justify-content: space-between; align-items: center;
             z-index: 100;
             transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .top-bar-profile {
+            display: flex; align-items: center; gap: 12px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+
+        .top-bar-profile.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .top-bar-avatar {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            flex-shrink: 0;
+        }
+
+        .top-bar-info h1 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .top-bar-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .top-bar-controls {
+            display: flex; gap: 16px;
         }
 
         .control-btn {
@@ -410,6 +446,11 @@
             .experience-header { flex-direction: column; }
             .top-bar { padding: 8px 16px; }
             .control-btn { padding: 6px 12px; font-size: 0.85rem; }
+            .top-bar-profile { gap: 8px; }
+            .top-bar-avatar { width: 28px; height: 28px; }
+            .top-bar-info h1 { font-size: 0.85rem; }
+            .top-bar-info span { display: none; }
+            .top-bar-controls { gap: 8px; }
 
             /* Timeline responsive */
             .timeline::before { left: 8px; }
@@ -422,22 +463,31 @@
 </head>
 <body>
     <div class="top-bar">
-        <button class="control-btn" id="langToggle" onclick="toggleLanguage()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-            </svg>
-            <span id="langLabel">TR</span>
-        </button>
-        <button class="control-btn" onclick="toggleTheme()">
-            <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"/>
-                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-            </svg>
-            <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-        </button>
+        <div class="top-bar-profile" id="topBarProfile">
+            <div class="top-bar-avatar"></div>
+            <div class="top-bar-info">
+                <h1>Onat Çipli</h1>
+                <span id="topBarTitle">Senior Mobile Developer</span>
+            </div>
+        </div>
+        <div class="top-bar-controls">
+            <button class="control-btn" id="langToggle" onclick="toggleLanguage()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                <span id="langLabel">TR</span>
+            </button>
+            <button class="control-btn" onclick="toggleTheme()">
+                <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
     </div>
 
     <div class="container" id="app">
@@ -715,7 +765,14 @@
             localStorage.setItem('lang', currentLang);
             document.getElementById('langLabel').textContent = currentLang === 'en' ? 'TR' : 'EN';
             document.documentElement.setAttribute('lang', currentLang);
+            updateTopBarTitle();
             render();
+        }
+
+        function updateTopBarTitle() {
+            if (content && content[currentLang]) {
+                document.getElementById('topBarTitle').textContent = content[currentLang].title;
+            }
         }
 
         async function init() {
@@ -736,10 +793,32 @@
                 const response = await fetch('content.json');
                 content = await response.json();
                 render();
+                updateTopBarTitle();
+                setupScrollHandler();
             } catch (error) {
                 console.error('Failed to load content:', error);
                 document.getElementById('app').innerHTML = '<div class="loading">Failed to load content. Please check content.json</div>';
             }
+        }
+
+        function setupScrollHandler() {
+            const topBarProfile = document.getElementById('topBarProfile');
+            const headerElement = document.querySelector('header');
+
+            function handleScroll() {
+                if (!headerElement) return;
+                const headerBottom = headerElement.offsetTop + headerElement.offsetHeight;
+                const scrollY = window.scrollY || window.pageYOffset;
+
+                if (scrollY > headerBottom - 60) {
+                    topBarProfile.classList.add('visible');
+                } else {
+                    topBarProfile.classList.remove('visible');
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll(); // Initial check
         }
 
         init();
