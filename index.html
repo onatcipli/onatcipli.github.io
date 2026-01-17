@@ -554,7 +554,8 @@
             youtube: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
             link: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
             mobile: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',
-            web: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
+            web: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+            pubdev: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.0 0.0L0.0 12.0L6.0 18.0L24.0 0.0L12.0 0.0ZM6.0 6.0L12.0 6.0L6.0 12.0L6.0 6.0ZM6.0 24.0L18.0 24.0L18.0 18.0L12.0 24.0L6.0 18.0L6.0 24.0ZM12.0 12.0L18.0 18.0L12.0 18.0L12.0 12.0Z"/></svg>'
         };
 
         let content = null;
@@ -624,7 +625,7 @@
                             <div class="timeline-header">
                                 <div>
                                     <div class="timeline-title">${proj.url ? `<a href="${proj.url}" target="_blank">${t(proj.name)}</a>` : t(proj.name)}</div>
-                                    <div class="timeline-company">@ ${proj.companyUrl ? `<a href="${proj.companyUrl}" target="_blank" style="color: var(--text-muted); text-decoration: none;">${proj.company}</a>` : proj.company}</div>
+                                    <div class="timeline-company">@ ${proj.companyUrl ? `<a href="${proj.companyUrl}" target="_blank" style="color: var(--text-muted); text-decoration: none;">${t(proj.company)}</a>` : t(proj.company)}</div>
                                 </div>
                                 ${proj.platform ? `<span class="timeline-platform ${proj.platform}">${icons[proj.platform] || ''} ${platformLabel[proj.platform] || proj.platform}</span>` : ''}
                             </div>
@@ -632,9 +633,10 @@
                                 ${proj.tags.map(tag => `<span class="timeline-tag">${tag}</span>`).join('')}
                             </div>
                             <p class="timeline-desc">${t(proj.description)}</p>
-                            ${(proj.appStore || proj.playStore || proj.url || proj.youtube) ? `
+                            ${(proj.appStore || proj.playStore || proj.url || proj.youtube || proj.pubdev) ? `
                                 <div class="timeline-links">
-                                    ${proj.url ? `<a href="${proj.url}" target="_blank">${icons.link} Website</a>` : ''}
+                                    ${proj.url ? `<a href="${proj.url}" target="_blank">${proj.url.includes('github.com') ? icons.github + ' GitHub' : icons.link + ' Website'}</a>` : ''}
+                                    ${proj.pubdev ? `<a href="${proj.pubdev}" target="_blank">${icons.pubdev} pub.dev</a>` : ''}
                                     ${proj.appStore ? `<a href="${proj.appStore}" target="_blank">${icons.appStore} App Store</a>` : ''}
                                     ${proj.playStore ? `<a href="${proj.playStore}" target="_blank">${icons.playStore} Play Store</a>` : ''}
                                     ${proj.youtube ? `<a href="${proj.youtube}" target="_blank">${icons.youtube} YouTube</a>` : ''}
@@ -663,9 +665,10 @@
                                 ${proj.tags.map(tag => `<span class="exp-project-tag">${tag}</span>`).join('')}
                             </div>
                             <p class="exp-project-desc">${t(proj.description)}</p>
-                            ${(proj.youtube || proj.url || proj.appStore || proj.playStore) ? `
+                            ${(proj.youtube || proj.url || proj.appStore || proj.playStore || proj.pubdev) ? `
                                 <div class="exp-project-links">
-                                    ${proj.url ? `<a href="${proj.url}" target="_blank">${icons.link} Website</a>` : ''}
+                                    ${proj.url ? `<a href="${proj.url}" target="_blank">${proj.url.includes('github.com') ? icons.github + ' GitHub' : icons.link + ' Website'}</a>` : ''}
+                                    ${proj.pubdev ? `<a href="${proj.pubdev}" target="_blank">${icons.pubdev} pub.dev</a>` : ''}
                                     ${proj.appStore ? `<a href="${proj.appStore}" target="_blank">${icons.appStore} App Store</a>` : ''}
                                     ${proj.playStore ? `<a href="${proj.playStore}" target="_blank">${icons.playStore} Play Store</a>` : ''}
                                     ${proj.youtube ? `<a href="${proj.youtube}" target="_blank">${icons.youtube} YouTube</a>` : ''}
