@@ -10,12 +10,12 @@
   },
   "en": {
     "title": "Senior Mobile Developer",
-    "bio": "Senior Mobile Developer with 6+ years of experience building production apps for clients across Ireland, UK, Netherlands, Greece, and Turkey. I specialize in Flutter, React Native, and Native Android development, with deep expertise in video/audio streaming, DRM implementation, and scalable multi-flavor architectures.",
+    "bio": "Senior Mobile Developer with 8 years of experience building production apps for clients across Ireland, UK, Germany, Greece, and Turkey. I specialize in Flutter, React Native, and Native Android development, with deep expertise in video/audio streaming, DRM implementation, and scalable multi-flavor architectures.",
     "aboutTitle": "About Me",
     "aboutContent": [
       "I started my journey in 2018 during university, building games with Unity and exploring mobile development with early Flutter versions. After graduating from İzmir Ekonomi Üniversitesi with a Software Engineering degree, I joined LOGO Yazılım where I led the evaluation of cross-platform frameworks, ultimately championing Flutter adoption for the company.",
-      "In 2020, I moved to Dublin to join Square1, working directly under the CTO on challenging projects for international clients. I've built everything from food delivery platforms managing 16 white-label apps from a single codebase, to Twitch-like streaming platforms, to children's media apps with complex DRM and offline playback.",
-      "My expertise spans the full mobile development spectrum: Flutter, React Native, Ionic, Kotlin, and Swift. I'm particularly passionate about clean architecture, building developer tools, and solving complex problems like multi-platform streaming and offline-first architectures."
+      "In 2020, I joined Square1 and worked closely with the CTO on challenging projects for international clients. I've built everything from food delivery platforms managing 16 white-label apps from a single codebase, to Twitch-like streaming platforms, to children's media apps with complex DRM and offline playback.",
+      "Beyond client work, I'm an active open source contributor. I created the popular Flutter Rename package used by thousands of developers, and I've contributed to the Flutter framework itself—creating issues, fixing bugs, and writing tests that were merged into the official repository. My expertise spans Flutter, React Native, Ionic, Kotlin, and Swift, with a passion for clean architecture and building developer tools."
     ],
     "skillsTitle": "Skills & Expertise",
     "skillsDesc": "Technologies and tools I work with",
@@ -28,12 +28,12 @@
   },
   "tr": {
     "title": "Kıdemli Mobil Geliştirici",
-    "bio": "İrlanda, İngiltere, Hollanda, Yunanistan ve Türkiye'deki müşteriler için production uygulamalar geliştiren 6+ yıllık deneyime sahip Kıdemli Mobil Geliştirici. Flutter, React Native ve Native Android geliştirme konularında uzmanım. Video/audio streaming, DRM implementasyonu ve ölçeklenebilir multi-flavor mimariler konularında derin tecrübem var.",
+    "bio": "İrlanda, İngiltere, Almanya, Yunanistan ve Türkiye'deki müşteriler için production uygulamalar geliştiren 8 yıllık deneyime sahip Kıdemli Mobil Geliştirici. Flutter, React Native ve Native Android geliştirme konularında uzmanım. Video/audio streaming, DRM implementasyonu ve ölçeklenebilir multi-flavor mimariler konularında derin tecrübem var.",
     "aboutTitle": "Hakkımda",
     "aboutContent": [
       "Yolculuğuma 2018'de üniversitede Unity ile oyunlar geliştirerek ve erken Flutter versiyonlarıyla mobil geliştirmeyi keşfederek başladım. İzmir Ekonomi Üniversitesi'nden Yazılım Mühendisliği diplomasıyla mezun olduktan sonra LOGO Yazılım'a katıldım ve cross-platform framework'lerin değerlendirmesini yönettim, sonuçta şirket için Flutter'ın benimsenmesini sağladım.",
-      "2020'de uluslararası müşteriler için zorlu projeler üzerinde CTO'nun direkt altında çalışmak üzere Dublin'e taşınıp Square1'e katıldım. Tek codebase'den 16 white-label uygulamayı yöneten yemek sipariş platformlarından, Twitch benzeri streaming platformlarına, karmaşık DRM ve offline playback içeren çocuk medya uygulamalarına kadar her şeyi geliştirdim.",
-      "Uzmanlığım tüm mobil geliştirme yelpazesini kapsıyor: Flutter, React Native, Ionic, Kotlin ve Swift. Özellikle clean architecture, geliştirici araçları oluşturma ve multi-platform streaming ile offline-first mimariler gibi karmaşık problemleri çözme konularında tutkuluyum."
+      "2020'de Square1'e katıldım ve CTO ile birlikte uluslararası müşteriler için zorlu projeler üzerinde çalıştım. Tek codebase'den 16 white-label uygulamayı yöneten yemek sipariş platformlarından, Twitch benzeri streaming platformlarına, karmaşık DRM ve offline playback içeren çocuk medya uygulamalarına kadar her şeyi geliştirdim.",
+      "Müşteri işlerinin ötesinde, aktif bir açık kaynak katkıcısıyım. Binlerce geliştirici tarafından kullanılan popüler Flutter Rename paketini oluşturdum ve Flutter framework'üne katkıda bulundum—issue'lar oluşturdum, buglar düzelttim ve resmi repository'e merge edilen testler yazdım. Uzmanlığım Flutter, React Native, Ionic, Kotlin ve Swift'i kapsıyor; clean architecture ve geliştirici araçları oluşturma konusunda tutkuluyum."
     ],
     "skillsTitle": "Yetenekler ve Uzmanlık",
     "skillsDesc": "Çalıştığım teknolojiler ve araçlar",
@@ -64,6 +64,19 @@
     { "en": "Design Patterns", "tr": "Design Patterns" }
   ],
   "education": [
+    {
+      "school": "İzmir Ekonomi Üniversitesi",
+      "schoolUrl": "https://www.ieu.edu.tr",
+      "degree": {
+        "en": "Master's Degree in Software Engineering (Incomplete)",
+        "tr": "Yazılım Mühendisliği Yüksek Lisans (Tamamlanmadı)"
+      },
+      "date": "2019 - 2020",
+      "description": {
+        "en": "Completed 1 year of Master's program before leaving to focus on career opportunities. Studied advanced software engineering topics.",
+        "tr": "Kariyer fırsatlarına odaklanmak için ayrılmadan önce Yüksek Lisans programının 1 yılını tamamladım. İleri düzey yazılım mühendisliği konularını çalıştım."
+      }
+    },
     {
       "school": "İzmir Ekonomi Üniversitesi",
       "schoolUrl": "https://www.ieu.edu.tr",
@@ -138,13 +151,13 @@
       },
       "summary": {
         "en": [
-          "Worked directly under the CTO, developing mobile solutions for international clients across Ireland, UK, Netherlands, and Greece",
+          "Collaborated closely with the CTO, developing mobile solutions for international clients across Ireland, UK, Germany, and Greece",
           "Led mobile architecture decisions and took full technical ownership of multiple projects",
           "Built complex streaming infrastructure, DRM systems, and multi-flavor app architectures",
           "Developed internal tooling including CLI tools for automated app generation"
         ],
         "tr": [
-          "CTO'nun direkt altında çalışarak İrlanda, İngiltere, Hollanda ve Yunanistan'dan uluslararası müşterilere mobil çözümler geliştirdim",
+          "CTO ile yakın çalışarak İrlanda, İngiltere, Almanya ve Yunanistan'dan uluslararası müşterilere mobil çözümler geliştirdim",
           "Mobil mimari kararlarını yönettim ve birçok projede tam teknik sahiplik aldım",
           "Karmaşık streaming altyapısı, DRM sistemleri ve multi-flavor uygulama mimarileri kurdum",
           "Otomatik uygulama üretimi için CLI araçları dahil internal tooling geliştirdim"
@@ -325,5 +338,29 @@
     }
   ],
   "projects": [],
-  "opensource": []
+  "opensource": [
+    {
+      "name": "rename",
+      "url": "https://github.com/onatcipli/rename",
+      "description": {
+        "en": "A CLI tool to rename Flutter apps easily. Change app name, bundle ID, and package name for iOS, Android, macOS, Linux, Windows, and Web platforms with a single command. Used by thousands of Flutter developers worldwide.",
+        "tr": "Flutter uygulamalarını kolayca yeniden adlandırmak için CLI aracı. Tek komutla iOS, Android, macOS, Linux, Windows ve Web platformları için uygulama adı, bundle ID ve paket adını değiştirin. Dünya çapında binlerce Flutter geliştiricisi tarafından kullanılıyor."
+      },
+      "language": "Dart",
+      "stars": 500,
+      "forks": 50
+    },
+    {
+      "name": "flutter/flutter",
+      "url": "https://github.com/flutter/flutter",
+      "description": {
+        "en": "Official Flutter framework contributor. Created issues, fixed bugs, and wrote tests that were merged into the official repository.",
+        "tr": "Resmi Flutter framework katkıcısı. Issue'lar oluşturdum, buglar düzelttim ve resmi repository'e merge edilen testler yazdım."
+      },
+      "language": "Dart",
+      "stars": 0,
+      "forks": 0,
+      "isContribution": true
+    }
+  ]
 }
