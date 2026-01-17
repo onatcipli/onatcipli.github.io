@@ -351,6 +351,18 @@
         .repo-description { color: var(--text-secondary); font-size: 0.95rem; }
         .repo-language { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 0.85rem; color: var(--text-muted); }
         .lang-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .contribution-badge {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        [data-theme="dark"] .contribution-badge {
+            background: #1e3a5f;
+            color: #93c5fd;
+        }
 
         footer { padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
 
@@ -628,10 +640,14 @@
                             <div class="repo-card">
                                 <div class="repo-header">
                                     <h3><a href="${repo.url}" target="_blank">${repo.name}</a></h3>
-                                    <div class="repo-stats">
-                                        <span>${icons.star} ${repo.stars || 0}</span>
-                                        <span>${icons.fork} ${repo.forks || 0}</span>
-                                    </div>
+                                    ${!repo.isContribution ? `
+                                        <div class="repo-stats">
+                                            <span>${icons.star} ${repo.stars || 0}</span>
+                                            <span>${icons.fork} ${repo.forks || 0}</span>
+                                        </div>
+                                    ` : `
+                                        <span class="contribution-badge">${currentLang === 'tr' ? 'Katkıcı' : 'Contributor'}</span>
+                                    `}
                                 </div>
                                 <p class="repo-description">${t(repo.description)}</p>
                                 <span class="repo-language">
