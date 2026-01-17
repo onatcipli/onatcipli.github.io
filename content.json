@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "name": "Onat Çipli",
+    "avatarUrl": "https://media.licdn.com/dms/image/v2/C5603AQHbo9urJTGD9A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1535182969746?e=1770249600&v=beta&t=r5Ztq2_eEWdf0-hnQ4TT8fkOmgpn_1BM6L3rtkKJ19s",
+    "email": "",
+    "github": "https://github.com/onatcipli",
+    "linkedin": "https://linkedin.com/in/onatcipli",
+    "twitter": "",
+    "website": "https://onatcipli.dev"
+  },
+  "en": {
+    "title": "Senior Mobile Developer",
+    "bio": "Senior Mobile Developer with 6+ years of experience. Expert in Flutter, React Native, Ionic and Native Android technologies. Deep expertise in scalable mobile architectures, video/audio streaming, and DRM implementation.",
+    "skillsTitle": "Skills & Expertise",
+    "skillsDesc": "Specialized in cross-platform mobile development with a focus on creating high-performance, scalable applications. Experienced in leading mobile projects from concept to production.",
+    "educationTitle": "Education",
+    "experienceTitle": "Work Experience",
+    "projectsTitle": "Projects & Apps",
+    "opensourceTitle": "Open Source",
+    "footer": "All rights reserved."
+  },
+  "tr": {
+    "title": "Kıdemli Mobil Geliştirici",
+    "bio": "6+ yıllık deneyime sahip Kıdemli Mobil Geliştirici. Flutter, React Native, Ionic ve Native Android teknolojilerinde uzman. Ölçeklenebilir mobil mimariler, video/audio streaming ve DRM implementasyonu konularında derin tecrübe.",
+    "skillsTitle": "Yetenekler ve Uzmanlık",
+    "skillsDesc": "Yüksek performanslı ve ölçeklenebilir uygulamalar geliştirmeye odaklı cross-platform mobil geliştirme uzmanı. Konseptten üretime mobil proje yönetimi deneyimi.",
+    "educationTitle": "Eğitim",
+    "experienceTitle": "İş Deneyimi",
+    "projectsTitle": "Projeler ve Uygulamalar",
+    "opensourceTitle": "Açık Kaynak",
+    "footer": "Tüm hakları saklıdır."
+  },
+  "skills": [
+    "Flutter",
+    "Dart",
+    "React Native",
+    "Ionic",
+    "TypeScript",
+    "Kotlin",
+    "Swift",
+    "Firebase",
+    "RESTful APIs",
+    "GraphQL",
+    "CI/CD",
+    "Unity",
+    "C#",
+    { "en": "Video/Audio Streaming", "tr": "Video/Audio Streaming" },
+    { "en": "DRM Implementation", "tr": "DRM Implementasyonu" },
+    { "en": "Clean Architecture", "tr": "Clean Architecture" },
+    { "en": "Design Patterns", "tr": "Design Patterns" }
+  ],
+  "education": [
+    {
+      "school": "İzmir Ekonomi Üniversitesi",
+      "schoolUrl": "https://www.ieu.edu.tr",
+      "degree": {
+        "en": "Bachelor's Degree in Software Engineering",
+        "tr": "Yazılım Mühendisliği Lisans"
+      },
+      "date": "2014 - 2019",
+      "description": {
+        "en": "Studied core software engineering principles including Java, Design Patterns, QA, Software Architecture, Algorithms, Data Structures, and Database Management. Started mobile development journey in 2018.",
+        "tr": "Java, Design Patterns, QA, Yazılım Mimarisi, Algoritma, Veri Yapıları ve Veritabanı Yönetimi gibi temel yazılım mühendisliği prensiplerini öğrendim. 2018'de mobil geliştirme yolculuğuma başladım."
+      },
+      "projects": [
+        {
+          "name": "Discover Steps",
+          "tags": ["Flutter"],
+          "type": {
+            "en": "Graduation Project",
+            "tr": "Bitirme Projesi"
+          },
+          "description": {
+            "en": "Mobile app offering step-by-step city tours for travelers. Users can create and follow location-based interactive tours with step-by-step navigation.",
+            "tr": "Gezginler için adım adım şehir turları sunan mobil uygulama. Kullanıcılar lokasyon bazlı interaktif turlar oluşturabilir ve step-by-step navigasyon ile takip edebilir."
+          }
+        },
+        {
+          "name": {
+            "en": "Unity Games",
+            "tr": "Unity Oyunları"
+          },
+          "tags": ["Unity", "C#"],
+          "description": {
+            "en": "Developed 3 games using Unity game engine and C#",
+            "tr": "Unity oyun motoru ve C# ile 3 oyun geliştirdim"
+          }
+        },
+        {
+          "name": {
+            "en": "Mobile App Projects",
+            "tr": "Mobil Uygulama Projeleri"
+          },
+          "tags": ["Flutter", "React Native"],
+          "description": {
+            "en": "Cross-platform mobile application development with Flutter and React Native",
+            "tr": "Flutter ve React Native ile cross-platform mobil uygulama geliştirme"
+          }
+        }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Square1",
+      "companyUrl": "https://square1.io",
+      "location": {
+        "en": "Dublin, Ireland",
+        "tr": "Dublin, İrlanda"
+      },
+      "date": {
+        "en": "Aug 2020 - Jan 2025",
+        "tr": "Ağu 2020 - Oca 2025"
+      },
+      "role": {
+        "en": "Flutter Developer",
+        "tr": "Flutter Developer"
+      },
+      "description": {
+        "en": "Developed mobile solutions for international clients in the CTO's team.",
+        "tr": "CTO liderliğindeki takımda uluslararası müşterilere mobil çözümler geliştirdim."
+      },
+      "projects": [
+        {
+          "name": "Caboodle",
+          "tags": ["Flutter", "Firebase", "CLI"],
+          "description": {
+            "en": "Food delivery platform for Ireland and UK market. Managed 16 different apps from single codebase using flavor-based architecture. Full technical responsibility of mobile side. Developed CLI tool for automated app generation from JSON configuration.",
+            "tr": "İrlanda ve İngiltere pazarı için yemek sipariş platformu. Flavor-based mimari ile tek codebase'den 16 farklı uygulamayı yönettim. Mobil tarafın tüm teknik sorumluluğu. JSON konfigürasyonundan otomatik uygulama üretimi için CLI tool geliştirdim."
+          }
+        },
+        {
+          "name": "Say TV",
+          "tags": ["Flutter", "Firebase", "Streaming"],
+          "description": {
+            "en": "Twitch-like live streaming and chat platform for TV shows and sports events. Built video/audio streaming infrastructure and real-time chat. Implemented push notification systems.",
+            "tr": "TV programları ve spor etkinlikleri için Twitch benzeri canlı yayın ve chat platformu. Video/audio streaming altyapısı ve real-time chat kurdum. Push notification sistemlerini implemente ettim."
+          }
+        },
+        {
+          "name": "Kids Radio",
+          "tags": ["Flutter", "DRM", "Streaming", "Offline"],
+          "description": {
+            "en": "Children's media platform for Greek client. YouTube + Spotify hybrid concept with video, audiobooks and radio. Background playback, offline download, DRM protection. Abstract Player pattern for unified playback with Spotify-style queue system.",
+            "tr": "Yunan müşteri için çocuklara yönelik medya platformu. Video, audiobook ve radyo içerikli YouTube + Spotify karışımı konsept. Background playback, offline indirme, DRM koruması. Spotify tarzı queue sistemi ile Abstract Player pattern."
+          }
+        },
+        {
+          "name": "Coosto",
+          "url": "https://www.coosto.com/en",
+          "tags": ["Kotlin", "Android Native"],
+          "description": {
+            "en": "Social media management app. Native Android development for multi-platform content publishing to Facebook, Instagram, and Twitter.",
+            "tr": "Sosyal medya yönetim uygulaması. Facebook, Instagram ve Twitter'a içerik paylaşımı için Native Android geliştirme."
+          }
+        },
+        {
+          "name": "MyHome",
+          "tags": ["Kotlin", "Android Native"],
+          "description": {
+            "en": "Real estate platform for property listings and search.",
+            "tr": "Emlak listeleme ve arama platformu."
+          }
+        },
+        {
+          "name": "Irish Times",
+          "tags": ["React Native"],
+          "description": {
+            "en": "Mobile app for Ireland's leading news platform.",
+            "tr": "İrlanda'nın önde gelen haber platformu için mobil uygulama."
+          }
+        },
+        {
+          "name": "Business Post",
+          "tags": ["Flutter"],
+          "description": {
+            "en": "Content aggregator app with direct source data fetching architecture. Designed project infrastructure.",
+            "tr": "Direkt kaynaklardan veri çekme mimarisine sahip içerik toplama uygulaması. Proje altyapısını tasarladım."
+          }
+        }
+      ]
+    },
+    {
+      "company": "LOGO Yazılım",
+      "companyUrl": "https://www.logo.com.tr",
+      "location": {
+        "en": "Turkey",
+        "tr": "Türkiye"
+      },
+      "date": {
+        "en": "Jun 2018 - Aug 2020",
+        "tr": "Haz 2018 - Ağu 2020"
+      },
+      "role": {
+        "en": "Software Development Specialist",
+        "tr": "Yazılım Geliştirme Uzmanı"
+      },
+      "description": {
+        "en": "Worked on R&D and product projects in cross-platform mobile development team. Started as intern, progressed to part-time during university, then full-time after graduation.",
+        "tr": "Cross-platform mobil geliştirme takımında Ar-Ge ve ürün projelerinde yer aldım. Stajyer olarak başladım, üniversite süresince part-time devam ettim, mezuniyetten sonra full-time geçtim."
+      },
+      "projects": [
+        {
+          "name": {
+            "en": "Cross-Platform Framework POC",
+            "tr": "Cross-Platform Framework POC"
+          },
+          "tags": ["Flutter", "React Native", "Ionic"],
+          "description": {
+            "en": "Developed Flutter and React Native versions of company's Ionic app as proof of concept. Conducted comparative analysis on performance, development process, and team fit.",
+            "tr": "Şirketin Ionic uygulamasının Flutter ve React Native versiyonlarını POC olarak geliştirdim. Performans, geliştirme süreci ve ekip uygunluğu açısından karşılaştırmalı analiz yaptım."
+          }
+        },
+        {
+          "name": "Document Management System",
+          "tags": ["Ionic", "TypeScript"],
+          "description": {
+            "en": "Enterprise document management application. Published to Android and iOS platforms.",
+            "tr": "Kurumsal doküman yönetim uygulaması. Android ve iOS platformlarına yayınladım."
+          }
+        },
+        {
+          "name": "Journey",
+          "tags": ["Flutter", "Ionic"],
+          "description": {
+            "en": "Enterprise mobile application from POC to production.",
+            "tr": "POC'tan üretime kurumsal mobil uygulama."
+          }
+        },
+        {
+          "name": "Low Code Platform",
+          "tags": ["Flutter", "Web"],
+          "description": {
+            "en": "Low-code application and website development platform.",
+            "tr": "Low-code uygulama ve web sitesi geliştirme platformu."
+          }
+        }
+      ]
+    }
+  ],
+  "projects": [],
+  "opensource": []
+}
