@@ -1,0 +1,17 @@
+{
+  "name": "Onat Çipli - Senior Mobile Developer",
+  "short_name": "Onat Çipli",
+  "description": "Senior Mobile Developer with 8 years of experience building production apps for clients across Ireland, UK, Germany, Greece, and Turkey.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
