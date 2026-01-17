@@ -106,15 +106,31 @@
         },
         {
           "name": {
-            "en": "Unity Games",
-            "tr": "Unity Oyunları"
+            "en": "Flutter Web Interactive Slides",
+            "tr": "Flutter Web İnteraktif Slaytlar"
           },
-          "date": "2016 - 2017",
+          "date": "2019",
+          "tags": ["Flutter", "Web"],
+          "platform": "web",
+          "youtube": "https://www.youtube.com/watch?v=YvNcvYKggx8",
+          "description": {
+            "en": "Built an interactive presentation/slides application using Flutter Web. Demonstrated Flutter's web capabilities for creating dynamic, animated presentations.",
+            "tr": "Flutter Web kullanarak interaktif sunum/slayt uygulaması geliştirdim. Dinamik, animasyonlu sunumlar oluşturmak için Flutter'ın web yeteneklerini gösterdim."
+          }
+        },
+        {
+          "name": "The Ozon",
+          "date": "2017",
           "tags": ["Unity", "C#"],
           "platform": "mobile",
+          "youtube": "https://www.youtube.com/watch?v=FbK-TfsalSE",
+          "type": {
+            "en": "University Game Project",
+            "tr": "Üniversite Oyun Projesi"
+          },
           "description": {
-            "en": "Developed 3 games using Unity game engine and C#",
-            "tr": "Unity oyun motoru ve C# ile 3 oyun geliştirdim"
+            "en": "First game developed during university using Unity game engine and C#. A complete game project showcasing game development fundamentals.",
+            "tr": "Üniversite sırasında Unity oyun motoru ve C# kullanarak geliştirilen ilk oyun. Oyun geliştirme temellerini sergileyen tam bir oyun projesi."
           }
         },
         {
@@ -197,6 +213,7 @@
           "date": { "en": "Jun 2023 - Nov 2024", "tr": "Haz 2023 - Kas 2024" },
           "startDate": "2023-06",
           "endDate": "2024-11",
+          "appStore": "https://apps.apple.com/us/app/kids-radio/id6464392731",
           "tags": ["Flutter", "DRM", "Streaming", "Offline"],
           "platform": "mobile",
           "description": {
@@ -225,6 +242,9 @@
           "date": { "en": "Feb 2021 - Jun 2021", "tr": "Şub 2021 - Haz 2021" },
           "startDate": "2021-02",
           "endDate": "2021-06",
+          "url": "https://www.myhome.ie/",
+          "appStore": "https://apps.apple.com/ie/app/myhome-ie/id368923847",
+          "playStore": "https://play.google.com/store/apps/details?id=ie.myhome.android.app",
           "tags": ["Kotlin", "Android Native"],
           "platform": "mobile",
           "description": {
@@ -238,6 +258,8 @@
           "date": { "en": "Sep 2021 - Mar 2022", "tr": "Eyl 2021 - Mar 2022" },
           "startDate": "2021-09",
           "endDate": "2022-03",
+          "appStore": "https://apps.apple.com/us/app/the-irish-times-epaper/id671732877",
+          "playStore": "https://play.google.com/store/apps/details?id=ie.irishtimes.reader",
           "tags": ["React Native"],
           "platform": "mobile",
           "description": {
@@ -251,6 +273,8 @@
           "date": { "en": "Apr 2022 - Aug 2022", "tr": "Nis 2022 - Ağu 2022" },
           "startDate": "2022-04",
           "endDate": "2022-08",
+          "appStore": "https://apps.apple.com/us/app/the-business-post/id467117236",
+          "playStore": "https://play.google.com/store/apps/details?id=ie.businesspost.android",
           "tags": ["Flutter"],
           "platform": "mobile",
           "description": {
