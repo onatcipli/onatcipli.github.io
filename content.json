@@ -65,6 +65,7 @@
       "projects": [
         {
           "name": "Discover Steps",
+          "date": "2019",
           "tags": ["Flutter"],
           "type": {
             "en": "Graduation Project",
@@ -80,6 +81,7 @@
             "en": "Unity Games",
             "tr": "Unity Oyunları"
           },
+          "date": "2016 - 2017",
           "tags": ["Unity", "C#"],
           "description": {
             "en": "Developed 3 games using Unity game engine and C#",
@@ -91,6 +93,7 @@
             "en": "Mobile App Projects",
             "tr": "Mobil Uygulama Projeleri"
           },
+          "date": "2018 - 2019",
           "tags": ["Flutter", "React Native"],
           "description": {
             "en": "Cross-platform mobile application development with Flutter and React Native",
@@ -116,68 +119,86 @@
         "en": "Flutter Developer",
         "tr": "Flutter Developer"
       },
-      "description": {
-        "en": "Developed mobile solutions for international clients in the CTO's team.",
-        "tr": "CTO liderliğindeki takımda uluslararası müşterilere mobil çözümler geliştirdim."
+      "summary": {
+        "en": [
+          "Worked directly under the CTO, developing mobile solutions for international clients across Ireland, UK, Netherlands, and Greece",
+          "Led mobile architecture decisions and took full technical ownership of multiple projects",
+          "Built complex streaming infrastructure, DRM systems, and multi-flavor app architectures",
+          "Developed internal tooling including CLI tools for automated app generation"
+        ],
+        "tr": [
+          "CTO'nun direkt altında çalışarak İrlanda, İngiltere, Hollanda ve Yunanistan'dan uluslararası müşterilere mobil çözümler geliştirdim",
+          "Mobil mimari kararlarını yönettim ve birçok projede tam teknik sahiplik aldım",
+          "Karmaşık streaming altyapısı, DRM sistemleri ve multi-flavor uygulama mimarileri kurdum",
+          "Otomatik uygulama üretimi için CLI araçları dahil internal tooling geliştirdim"
+        ]
       },
       "projects": [
         {
           "name": "Caboodle",
+          "date": { "en": "Jan 2021 - Jan 2025", "tr": "Oca 2021 - Oca 2025" },
           "url": "https://citygrab.co.uk",
           "tags": ["Flutter", "Firebase", "CLI"],
+          "status": { "en": "Discontinued", "tr": "Sonlandırıldı" },
           "description": {
-            "en": "Food delivery platform for Ireland and UK market. Managed 16 different apps from single codebase using flavor-based architecture. Full technical responsibility of mobile side. Developed CLI tool for automated app generation from JSON configuration. (App discontinued)",
-            "tr": "İrlanda ve İngiltere pazarı için yemek sipariş platformu. Flavor-based mimari ile tek codebase'den 16 farklı uygulamayı yönettim. Mobil tarafın tüm teknik sorumluluğu. JSON konfigürasyonundan otomatik uygulama üretimi için CLI tool geliştirdim. (Uygulama sonlandırıldı)"
+            "en": "Food delivery platform for Ireland and UK market. Managed 16 different white-label apps from single codebase using flavor-based architecture. Full technical responsibility of mobile side. Developed CLI tool for automated app generation from JSON configuration.",
+            "tr": "İrlanda ve İngiltere pazarı için yemek sipariş platformu. Flavor-based mimari ile tek codebase'den 16 farklı white-label uygulamayı yönettim. Mobil tarafın tüm teknik sorumluluğu. JSON konfigürasyonundan otomatik uygulama üretimi için CLI tool geliştirdim."
           }
         },
         {
           "name": "Say TV",
+          "date": { "en": "Mar 2022 - Dec 2023", "tr": "Mar 2022 - Ara 2023" },
           "tags": ["Flutter", "Firebase", "Streaming"],
           "description": {
-            "en": "Twitch-like live streaming and chat platform for TV shows and sports events. Built video/audio streaming infrastructure and real-time chat. Implemented push notification systems.",
-            "tr": "TV programları ve spor etkinlikleri için Twitch benzeri canlı yayın ve chat platformu. Video/audio streaming altyapısı ve real-time chat kurdum. Push notification sistemlerini implemente ettim."
+            "en": "Twitch-like live streaming and chat platform for TV shows and sports events. Built video/audio streaming infrastructure and real-time chat system. Implemented push notification systems and live event synchronization.",
+            "tr": "TV programları ve spor etkinlikleri için Twitch benzeri canlı yayın ve chat platformu. Video/audio streaming altyapısı ve real-time chat sistemi kurdum. Push notification ve canlı etkinlik senkronizasyonu implemente ettim."
           }
         },
         {
           "name": "Kids Radio",
+          "date": { "en": "Jun 2023 - Nov 2024", "tr": "Haz 2023 - Kas 2024" },
           "tags": ["Flutter", "DRM", "Streaming", "Offline"],
           "description": {
-            "en": "Children's media platform for Greek client. YouTube + Spotify hybrid concept with video, audiobooks and radio. Background playback, offline download, DRM protection. Abstract Player pattern for unified playback with Spotify-style queue system.",
-            "tr": "Yunan müşteri için çocuklara yönelik medya platformu. Video, audiobook ve radyo içerikli YouTube + Spotify karışımı konsept. Background playback, offline indirme, DRM koruması. Spotify tarzı queue sistemi ile Abstract Player pattern."
+            "en": "Children's media platform for Greek client. YouTube + Spotify hybrid concept with video, audiobooks and radio content. Implemented background playback, offline download with DRM protection. Built Abstract Player pattern for unified playback across all media types with Spotify-style queue system.",
+            "tr": "Yunan müşteri için çocuklara yönelik medya platformu. Video, audiobook ve radyo içerikli YouTube + Spotify karışımı konsept. Background playback, DRM korumalı offline indirme implemente ettim. Tüm medya tipleri için Spotify tarzı queue sistemi ile Abstract Player pattern kurdum."
           }
         },
         {
           "name": "Coosto",
+          "date": { "en": "Aug 2020 - Feb 2021", "tr": "Ağu 2020 - Şub 2021" },
           "url": "https://www.coosto.com/en",
           "appStore": "https://apps.apple.com/us/app/coosto/id778600146",
           "tags": ["Kotlin", "Android Native"],
           "description": {
-            "en": "Social media management app. Native Android development for multi-platform content publishing to Facebook, Instagram, and Twitter.",
-            "tr": "Sosyal medya yönetim uygulaması. Facebook, Instagram ve Twitter'a içerik paylaşımı için Native Android geliştirme."
+            "en": "Social media management app for Dutch client. Native Android development for multi-platform content publishing to Facebook, Instagram, and Twitter. Implemented scheduling, analytics dashboard and team collaboration features.",
+            "tr": "Hollandalı müşteri için sosyal medya yönetim uygulaması. Facebook, Instagram ve Twitter'a içerik paylaşımı için Native Android geliştirme. Zamanlama, analitik dashboard ve takım işbirliği özellikleri implemente ettim."
           }
         },
         {
           "name": "MyHome",
+          "date": { "en": "Feb 2021 - Jun 2021", "tr": "Şub 2021 - Haz 2021" },
           "tags": ["Kotlin", "Android Native"],
           "description": {
-            "en": "Real estate platform for property listings and search.",
-            "tr": "Emlak listeleme ve arama platformu."
+            "en": "Ireland's leading real estate platform. Native Android development for property listings, search with map integration, and saved properties management.",
+            "tr": "İrlanda'nın önde gelen emlak platformu. Emlak listeleme, harita entegrasyonlu arama ve kayıtlı mülk yönetimi için Native Android geliştirme."
           }
         },
         {
           "name": "Irish Times",
+          "date": { "en": "Sep 2021 - Mar 2022", "tr": "Eyl 2021 - Mar 2022" },
           "tags": ["React Native"],
           "description": {
-            "en": "Mobile app for Ireland's leading news platform.",
-            "tr": "İrlanda'nın önde gelen haber platformu için mobil uygulama."
+            "en": "Mobile app for Ireland's leading news platform. React Native development with offline reading, push notifications, and subscription management.",
+            "tr": "İrlanda'nın önde gelen haber platformu için mobil uygulama. Offline okuma, push notification ve abonelik yönetimi ile React Native geliştirme."
           }
         },
         {
           "name": "Business Post",
+          "date": { "en": "Apr 2022 - Aug 2022", "tr": "Nis 2022 - Ağu 2022" },
           "tags": ["Flutter"],
           "description": {
-            "en": "Content aggregator app with direct source data fetching architecture. Designed project infrastructure.",
-            "tr": "Direkt kaynaklardan veri çekme mimarisine sahip içerik toplama uygulaması. Proje altyapısını tasarladım."
+            "en": "Content aggregator app with direct source data fetching architecture. Designed and built the project infrastructure from scratch including caching layer and offline support.",
+            "tr": "Direkt kaynaklardan veri çekme mimarisine sahip içerik toplama uygulaması. Cache katmanı ve offline destek dahil proje altyapısını sıfırdan tasarlayıp kurdum."
           }
         }
       ]
@@ -197,9 +218,19 @@
         "en": "Software Development Specialist",
         "tr": "Yazılım Geliştirme Uzmanı"
       },
-      "description": {
-        "en": "Worked on R&D and product projects in cross-platform mobile development team. Started as intern, progressed to part-time during university, then full-time after graduation.",
-        "tr": "Cross-platform mobil geliştirme takımında Ar-Ge ve ürün projelerinde yer aldım. Stajyer olarak başladım, üniversite süresince part-time devam ettim, mezuniyetten sonra full-time geçtim."
+      "summary": {
+        "en": [
+          "Started as intern, progressed to part-time during university, then full-time after graduation",
+          "Worked in R&D team on cross-platform mobile development evaluation and implementation",
+          "Led proof-of-concept development comparing Flutter, React Native, and Ionic frameworks",
+          "Published enterprise applications to both Android and iOS platforms"
+        ],
+        "tr": [
+          "Stajyer olarak başladım, üniversite süresince part-time devam ettim, mezuniyetten sonra full-time geçtim",
+          "Ar-Ge takımında cross-platform mobil geliştirme değerlendirmesi ve implementasyonu üzerinde çalıştım",
+          "Flutter, React Native ve Ionic framework'lerini karşılaştıran POC geliştirmelerini yönettim",
+          "Kurumsal uygulamaları Android ve iOS platformlarına yayınladım"
+        ]
       },
       "projects": [
         {
@@ -207,34 +238,38 @@
             "en": "Cross-Platform Framework POC",
             "tr": "Cross-Platform Framework POC"
           },
+          "date": { "en": "Jan 2019 - Jun 2019", "tr": "Oca 2019 - Haz 2019" },
           "tags": ["Flutter", "React Native", "Ionic"],
           "description": {
-            "en": "Developed Flutter and React Native versions of company's Ionic app as proof of concept. Conducted comparative analysis on performance, development process, and team fit.",
-            "tr": "Şirketin Ionic uygulamasının Flutter ve React Native versiyonlarını POC olarak geliştirdim. Performans, geliştirme süreci ve ekip uygunluğu açısından karşılaştırmalı analiz yaptım."
+            "en": "Developed Flutter and React Native versions of company's existing Ionic app as proof of concept. Conducted comprehensive comparative analysis on performance metrics, development velocity, and team adaptability. Results led to Flutter adoption for new projects.",
+            "tr": "Şirketin mevcut Ionic uygulamasının Flutter ve React Native versiyonlarını POC olarak geliştirdim. Performans metrikleri, geliştirme hızı ve ekip uyumu konularında kapsamlı karşılaştırmalı analiz yaptım. Sonuçlar yeni projeler için Flutter'ın benimsenmesine yol açtı."
           }
         },
         {
           "name": "Document Management System",
+          "date": { "en": "Jun 2018 - Dec 2018", "tr": "Haz 2018 - Ara 2018" },
           "tags": ["Ionic", "TypeScript"],
           "description": {
-            "en": "Enterprise document management application. Published to Android and iOS platforms.",
-            "tr": "Kurumsal doküman yönetim uygulaması. Android ve iOS platformlarına yayınladım."
+            "en": "Enterprise document management application with file upload, categorization, search, and offline access. Published to Android and iOS platforms.",
+            "tr": "Dosya yükleme, kategorileme, arama ve offline erişim özellikleriyle kurumsal doküman yönetim uygulaması. Android ve iOS platformlarına yayınladım."
           }
         },
         {
           "name": "Journey",
+          "date": { "en": "Jul 2019 - Mar 2020", "tr": "Tem 2019 - Mar 2020" },
           "tags": ["Flutter", "Ionic"],
           "description": {
-            "en": "Enterprise mobile application from POC to production.",
-            "tr": "POC'tan üretime kurumsal mobil uygulama."
+            "en": "Enterprise mobile application developed from POC to production. Handled full development lifecycle including architecture design, implementation, and deployment.",
+            "tr": "POC'tan üretime geliştirilen kurumsal mobil uygulama. Mimari tasarım, implementasyon ve deployment dahil tam geliştirme döngüsünü yönettim."
           }
         },
         {
           "name": "Low Code Platform",
+          "date": { "en": "Apr 2020 - Aug 2020", "tr": "Nis 2020 - Ağu 2020" },
           "tags": ["Flutter", "Web"],
           "description": {
-            "en": "Low-code application and website development platform.",
-            "tr": "Low-code uygulama ve web sitesi geliştirme platformu."
+            "en": "Low-code application and website development platform. Built mobile preview and rendering engine for dynamically generated UIs.",
+            "tr": "Low-code uygulama ve web sitesi geliştirme platformu. Dinamik olarak üretilen UI'lar için mobil önizleme ve rendering motoru geliştirdim."
           }
         }
       ]
