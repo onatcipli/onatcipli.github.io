@@ -118,31 +118,69 @@
         .experience-header .company { color: var(--accent); text-decoration: none; }
         .experience-header .company:hover { text-decoration: underline; }
         .experience-header .date { color: var(--text-muted); font-size: 0.9rem; }
-        .experience-location { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px; }
-        .experience-description { color: var(--text-secondary); margin-bottom: 16px; }
+        .experience-location { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px; }
+        .experience-summary { margin-bottom: 20px; }
+        .experience-summary ul { list-style: none; padding: 0; }
+        .experience-summary li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .experience-summary li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
 
         /* Projects within experience */
-        .exp-projects { margin-top: 20px; }
+        .exp-projects { margin-top: 24px; }
+        .exp-projects-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
         .exp-project {
             background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 12px;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 3px solid var(--accent);
         }
         .exp-project:last-child { margin-bottom: 0; }
-        .exp-project-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
-        .exp-project-name { font-weight: 600; font-size: 1rem; }
+        .exp-project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+        .exp-project-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .exp-project-name { font-weight: 600; font-size: 1.05rem; }
         .exp-project-name a { color: var(--accent); text-decoration: none; }
         .exp-project-name a:hover { text-decoration: underline; }
-        .exp-project-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .exp-project-date { color: var(--text-muted); font-size: 0.85rem; }
+        .exp-project-status {
+            background: #ef4444;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .exp-project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
         .exp-project-tag {
             background: var(--bg-primary);
-            padding: 2px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
             font-size: 0.75rem;
             color: var(--text-muted);
         }
-        .exp-project-desc { color: var(--text-secondary); font-size: 0.9rem; }
+        .exp-project-desc { color: var(--text-secondary); font-size: 0.9rem; margin-top: 12px; line-height: 1.6; }
+        .exp-project-links { display: flex; gap: 12px; margin-top: 12px; }
+        .exp-project-links a { color: var(--accent); text-decoration: none; font-size: 0.85rem; }
+        .exp-project-links a:hover { text-decoration: underline; }
 
         /* Education */
         .education-item { margin-bottom: 32px; }
@@ -255,8 +293,31 @@
         };
 
         let content = null;
-        let currentLang = localStorage.getItem('lang') || 'en';
-        let currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Detect browser language, fallback to English
+        function detectLanguage() {
+            const stored = localStorage.getItem('lang');
+            if (stored) return stored;
+
+            const browserLang = navigator.language || navigator.languages?.[0] || 'en';
+            // Check if browser language starts with 'tr' (e.g., 'tr', 'tr-TR')
+            return browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
+        }
+
+        // Detect browser theme preference
+        function detectTheme() {
+            const stored = localStorage.getItem('theme');
+            if (stored) return stored;
+
+            // Check system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+            return 'light';
+        }
+
+        let currentLang = detectLanguage();
+        let currentTheme = detectTheme();
 
         function t(obj, fallback = '') {
             if (!obj) return fallback;
@@ -264,19 +325,31 @@
             return obj[currentLang] || obj['en'] || fallback;
         }
 
-        function renderExpProjects(projects) {
+        function renderExpProjects(projects, showLabel = true) {
             if (!projects || !projects.length) return '';
+            const label = currentLang === 'tr' ? 'Projeler' : 'Projects';
             return `
                 <div class="exp-projects">
+                    ${showLabel ? `<div class="exp-projects-label">${label}</div>` : ''}
                     ${projects.map(proj => `
                         <div class="exp-project">
                             <div class="exp-project-header">
-                                <span class="exp-project-name">${proj.url ? `<a href="${proj.url}" target="_blank">${t(proj.name)}</a>` : t(proj.name)}</span>
-                                <div class="exp-project-tags">
-                                    ${proj.tags.map(tag => `<span class="exp-project-tag">${tag}</span>`).join('')}
+                                <div class="exp-project-title">
+                                    <span class="exp-project-name">${proj.url ? `<a href="${proj.url}" target="_blank">${t(proj.name)}</a>` : t(proj.name)}</span>
+                                    ${proj.status ? `<span class="exp-project-status">${t(proj.status)}</span>` : ''}
                                 </div>
+                                ${proj.date ? `<span class="exp-project-date">${t(proj.date)}</span>` : ''}
+                            </div>
+                            <div class="exp-project-tags">
+                                ${proj.tags.map(tag => `<span class="exp-project-tag">${tag}</span>`).join('')}
                             </div>
                             <p class="exp-project-desc">${t(proj.description)}</p>
+                            ${(proj.appStore || proj.playStore) ? `
+                                <div class="exp-project-links">
+                                    ${proj.appStore ? `<a href="${proj.appStore}" target="_blank">App Store</a>` : ''}
+                                    ${proj.playStore ? `<a href="${proj.playStore}" target="_blank">Play Store</a>` : ''}
+                                </div>
+                            ` : ''}
                         </div>
                     `).join('')}
                 </div>
@@ -328,7 +401,13 @@
                                 <span class="date">${t(exp.date)}</span>
                             </div>
                             ${exp.location ? `<div class="experience-location">${t(exp.location)}</div>` : ''}
-                            <p class="experience-description">${t(exp.description)}</p>
+                            ${exp.summary ? `
+                                <div class="experience-summary">
+                                    <ul>
+                                        ${(Array.isArray(t(exp.summary)) ? t(exp.summary) : [t(exp.summary)]).map(item => `<li>${item}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : (exp.description ? `<p class="experience-description">${t(exp.description)}</p>` : '')}
                             ${renderExpProjects(exp.projects)}
                         </div>
                     `).join('')}
@@ -345,7 +424,7 @@
                             <div class="education-degree">${t(edu.degree)}</div>
                             <div class="education-date">${edu.date}</div>
                             ${edu.description ? `<p class="education-description">${t(edu.description)}</p>` : ''}
-                            ${renderExpProjects(edu.projects)}
+                            ${renderExpProjects(edu.projects, true)}
                         </div>
                     `).join('')}
                 </section>
@@ -430,6 +509,17 @@
         async function init() {
             setTheme(currentTheme);
             document.getElementById('langLabel').textContent = currentLang === 'en' ? 'TR' : 'EN';
+            document.documentElement.setAttribute('lang', currentLang);
+
+            // Listen for system theme changes (only if user hasn't set a preference)
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                    if (!localStorage.getItem('theme')) {
+                        currentTheme = e.matches ? 'dark' : 'light';
+                        setTheme(currentTheme);
+                    }
+                });
+            }
 
             try {
                 const response = await fetch('content.json');
