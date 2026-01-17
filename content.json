@@ -123,10 +123,11 @@
       "projects": [
         {
           "name": "Caboodle",
+          "url": "https://citygrab.co.uk",
           "tags": ["Flutter", "Firebase", "CLI"],
           "description": {
-            "en": "Food delivery platform for Ireland and UK market. Managed 16 different apps from single codebase using flavor-based architecture. Full technical responsibility of mobile side. Developed CLI tool for automated app generation from JSON configuration.",
-            "tr": "İrlanda ve İngiltere pazarı için yemek sipariş platformu. Flavor-based mimari ile tek codebase'den 16 farklı uygulamayı yönettim. Mobil tarafın tüm teknik sorumluluğu. JSON konfigürasyonundan otomatik uygulama üretimi için CLI tool geliştirdim."
+            "en": "Food delivery platform for Ireland and UK market. Managed 16 different apps from single codebase using flavor-based architecture. Full technical responsibility of mobile side. Developed CLI tool for automated app generation from JSON configuration. (App discontinued)",
+            "tr": "İrlanda ve İngiltere pazarı için yemek sipariş platformu. Flavor-based mimari ile tek codebase'den 16 farklı uygulamayı yönettim. Mobil tarafın tüm teknik sorumluluğu. JSON konfigürasyonundan otomatik uygulama üretimi için CLI tool geliştirdim. (Uygulama sonlandırıldı)"
           }
         },
         {
@@ -148,6 +149,7 @@
         {
           "name": "Coosto",
           "url": "https://www.coosto.com/en",
+          "appStore": "https://apps.apple.com/us/app/coosto/id778600146",
           "tags": ["Kotlin", "Android Native"],
           "description": {
             "en": "Social media management app. Native Android development for multi-platform content publishing to Facebook, Instagram, and Twitter.",

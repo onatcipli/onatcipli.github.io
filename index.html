@@ -143,6 +143,9 @@
             color: var(--text-muted);
         }
         .exp-project-desc { color: var(--text-secondary); font-size: 0.9rem; }
+        .exp-project-links { display: flex; gap: 12px; margin-top: 8px; }
+        .exp-project-links a { color: var(--accent); text-decoration: none; font-size: 0.85rem; }
+        .exp-project-links a:hover { text-decoration: underline; }
 
         /* Education */
         .education-item { margin-bottom: 32px; }
@@ -300,6 +303,12 @@
                                 </div>
                             </div>
                             <p class="exp-project-desc">${t(proj.description)}</p>
+                            ${(proj.appStore || proj.playStore) ? `
+                                <div class="exp-project-links">
+                                    ${proj.appStore ? `<a href="${proj.appStore}" target="_blank">App Store</a>` : ''}
+                                    ${proj.playStore ? `<a href="${proj.playStore}" target="_blank">Play Store</a>` : ''}
+                                </div>
+                            ` : ''}
                         </div>
                     `).join('')}
                 </div>
