@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "name": "Onat Cipli",
+    "avatarUrl": "avatar.jpg",
+    "email": "your-email@example.com",
+    "github": "https://github.com/onatcipli",
+    "linkedin": "https://linkedin.com/in/onatcipli",
+    "twitter": "",
+    "website": ""
+  },
+  "en": {
+    "title": "Senior Mobile Developer",
+    "bio": "Passionate mobile developer with expertise in Flutter, iOS, and Android. Building beautiful, performant apps that users love. Also experienced in backend development and product analytics.",
+    "skillsTitle": "Skills & Expertise",
+    "skillsDesc": "With years of experience in mobile development, I specialize in creating cross-platform applications with Flutter while maintaining deep expertise in native iOS and Android development.",
+    "experienceTitle": "Work Experience",
+    "projectsTitle": "Projects & Apps",
+    "opensourceTitle": "Open Source",
+    "footer": "All rights reserved."
+  },
+  "tr": {
+    "title": "Kidemli Mobil Gelistirici",
+    "bio": "Flutter, iOS ve Android konularinda uzman tutkulu bir mobil gelistirici. Kullanicilarin sevdigi guzel ve performansli uygulamalar gelistiriyorum. Backend gelistirme ve urun analitigi konularinda da deneyimliyim.",
+    "skillsTitle": "Yetenekler ve Uzmanlik",
+    "skillsDesc": "Mobil gelistirme alanindaki yillarlik deneyimimle, Flutter ile platformlar arasi uygulamalar olusturmada uzmanlasmis olup, yerel iOS ve Android gelistirmede de derin uzmanligi koruyorum.",
+    "experienceTitle": "Is Deneyimi",
+    "projectsTitle": "Projeler ve Uygulamalar",
+    "opensourceTitle": "Acik Kaynak",
+    "footer": "Tum haklari saklidir."
+  },
+  "skills": [
+    "Flutter",
+    "Dart",
+    "iOS / Swift",
+    "Android / Kotlin",
+    "Firebase",
+    "REST APIs",
+    "GraphQL",
+    "CI/CD",
+    { "en": "Product Analytics", "tr": "Urun Analitigi" },
+    { "en": "Backend Development", "tr": "Backend Gelistirme" }
+  ],
+  "experience": [
+    {
+      "company": "Company Name",
+      "companyUrl": "https://company.com",
+      "date": "2023 - Present",
+      "role": {
+        "en": "Senior Mobile Developer",
+        "tr": "Kidemli Mobil Gelistirici"
+      },
+      "description": {
+        "en": "Brief description of your role and responsibilities.",
+        "tr": "Rol ve sorumluluklarinizin kisa aciklamasi."
+      },
+      "tasks": {
+        "en": [
+          "Key achievement or responsibility",
+          "Another important contribution",
+          "Technologies used or projects delivered"
+        ],
+        "tr": [
+          "Onemli basari veya sorumluluk",
+          "Diger onemli katki",
+          "Kullanilan teknolojiler veya teslim edilen projeler"
+        ]
+      }
+    },
+    {
+      "company": "Previous Company",
+      "companyUrl": "",
+      "date": "2021 - 2023",
+      "role": {
+        "en": "Mobile Developer",
+        "tr": "Mobil Gelistirici"
+      },
+      "description": {
+        "en": "Brief description of your role and responsibilities.",
+        "tr": "Rol ve sorumluluklarinizin kisa aciklamasi."
+      },
+      "tasks": {
+        "en": [
+          "Key achievement or responsibility",
+          "Another important contribution"
+        ],
+        "tr": [
+          "Onemli basari veya sorumluluk",
+          "Diger onemli katki"
+        ]
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": {
+        "en": "Project Name",
+        "tr": "Proje Adi"
+      },
+      "description": {
+        "en": "Brief description of the project and what it does.",
+        "tr": "Projenin ve ne yaptiginin kisa aciklamasi."
+      },
+      "image": "project1.jpg",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "tags": ["Flutter", "Firebase"],
+      "links": {
+        "appStore": "",
+        "playStore": "",
+        "github": "",
+        "website": ""
+      }
+    },
+    {
+      "name": {
+        "en": "Another Project",
+        "tr": "Baska Bir Proje"
+      },
+      "description": {
+        "en": "Brief description of the project and what it does.",
+        "tr": "Projenin ve ne yaptiginin kisa aciklamasi."
+      },
+      "image": "project2.jpg",
+      "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      "tags": ["iOS", "Swift"],
+      "links": {
+        "appStore": "",
+        "playStore": "",
+        "github": "",
+        "website": ""
+      }
+    }
+  ],
+  "opensource": [
+    {
+      "name": "repository-name",
+      "url": "https://github.com/onatcipli/repo-name",
+      "description": {
+        "en": "A brief description of what this repository does and why it's useful.",
+        "tr": "Bu reponun ne yaptiginin ve neden faydali oldugununun kisa aciklamasi."
+      },
+      "language": "Dart",
+      "stars": 123,
+      "forks": 45
+    },
+    {
+      "name": "another-repository",
+      "url": "https://github.com/onatcipli/another-repo",
+      "description": {
+        "en": "Description of this repository and its purpose.",
+        "tr": "Bu reponun ve amacinin aciklamasi."
+      },
+      "language": "Swift",
+      "stars": 67,
+      "forks": 12
+    }
+  ]
+}
