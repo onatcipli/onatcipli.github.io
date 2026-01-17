@@ -20,6 +20,7 @@
             --border: #eaeaea;
             --accent: #0066cc;
             --accent-hover: #0052a3;
+            --timeline-line: #e0e0e0;
         }
 
         [data-theme="dark"] {
@@ -31,6 +32,7 @@
             --border: #3f3f46;
             --accent: #60a5fa;
             --accent-hover: #93c5fd;
+            --timeline-line: #3f3f46;
         }
 
         body {
@@ -41,7 +43,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
         .top-bar {
             position: fixed; top: 0; left: 0; right: 0;
@@ -69,19 +71,21 @@
         .control-btn svg { width: 18px; height: 18px; }
 
         header { padding: 100px 0 60px; border-bottom: 1px solid var(--border); }
-        .header-content { display: flex; align-items: flex-start; gap: 32px; }
+        .header-content { display: flex; align-items: flex-start; gap: 40px; }
 
         .avatar {
-            width: 120px; height: 120px;
+            width: 160px; height: 160px;
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 4px solid var(--bg-secondary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .header-text h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
         .header-text .title { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 16px; }
-        .header-text .bio { color: var(--text-secondary); max-width: 500px; margin-bottom: 20px; }
+        .header-text .bio { color: var(--text-secondary); max-width: 550px; margin-bottom: 20px; }
 
         .social-links { display: flex; gap: 16px; flex-wrap: wrap; }
         .social-links a {
@@ -97,6 +101,14 @@
         section { padding: 60px 0; border-bottom: 1px solid var(--border); }
         section:last-child { border-bottom: none; }
         section h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 32px; letter-spacing: -0.01em; }
+
+        /* About Me */
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .about-content p:last-child { margin-bottom: 0; }
 
         .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
         .skill-tag {
@@ -136,51 +148,147 @@
             font-weight: bold;
         }
 
-        /* Projects within experience */
-        .exp-projects { margin-top: 24px; }
-        .exp-projects-label {
+        /* Timeline */
+        .timeline { position: relative; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 120px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--timeline-line);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-date {
+            width: 100px;
+            flex-shrink: 0;
+            text-align: right;
             font-size: 0.85rem;
-            font-weight: 600;
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 16px;
+            padding-top: 4px;
         }
-        .exp-project {
+        .timeline-dot {
+            position: absolute;
+            left: 114px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg-primary);
+            z-index: 1;
+        }
+        .timeline-content {
+            flex: 1;
             background: var(--bg-secondary);
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 20px;
-            margin-bottom: 16px;
-            border-left: 3px solid var(--accent);
+            margin-left: 20px;
         }
-        .exp-project:last-child { margin-bottom: 0; }
-        .exp-project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
-        .exp-project-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .exp-project-name { font-weight: 600; font-size: 1.05rem; }
-        .exp-project-name a { color: var(--accent); text-decoration: none; }
-        .exp-project-name a:hover { text-decoration: underline; }
-        .exp-project-date { color: var(--text-muted); font-size: 0.85rem; }
-        .exp-project-status {
-            background: #ef4444;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
+        .timeline-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .timeline-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .timeline-title a { color: var(--accent); text-decoration: none; }
+        .timeline-title a:hover { text-decoration: underline; }
+        .timeline-company {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .timeline-platform {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
             font-weight: 500;
             text-transform: uppercase;
         }
-        .exp-project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
-        .exp-project-tag {
+        .timeline-platform.mobile {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+        .timeline-platform.web {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .timeline-platform.backend {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        [data-theme="dark"] .timeline-platform.mobile {
+            background: #1e3a5f;
+            color: #93c5fd;
+        }
+        [data-theme="dark"] .timeline-platform.web {
+            background: #14532d;
+            color: #86efac;
+        }
+        [data-theme="dark"] .timeline-platform.backend {
+            background: #451a03;
+            color: #fcd34d;
+        }
+        .timeline-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        .timeline-tag {
             background: var(--bg-primary);
             padding: 4px 10px;
             border-radius: 4px;
             font-size: 0.75rem;
             color: var(--text-muted);
         }
-        .exp-project-desc { color: var(--text-secondary); font-size: 0.9rem; margin-top: 12px; line-height: 1.6; }
-        .exp-project-links { display: flex; gap: 12px; margin-top: 12px; }
-        .exp-project-links a { color: var(--accent); text-decoration: none; font-size: 0.85rem; }
-        .exp-project-links a:hover { text-decoration: underline; }
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .timeline-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .timeline-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .timeline-links a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .timeline-links a svg {
+            width: 16px;
+            height: 16px;
+        }
 
         /* Education */
         .education-item { margin-bottom: 32px; }
@@ -193,25 +301,36 @@
         .education-date { color: var(--text-muted); font-size: 0.9rem; }
         .education-description { color: var(--text-secondary); margin: 12px 0; font-size: 0.95rem; }
 
-        /* Personal Projects Grid */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-        .project-card {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: box-shadow 0.2s, transform 0.2s;
-            background: var(--bg-primary);
+        /* Projects within education */
+        .exp-projects { margin-top: 20px; }
+        .exp-projects-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
         }
-        .project-card:hover { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); transform: translateY(-2px); }
-        .project-image { width: 100%; height: 180px; object-fit: cover; background: var(--bg-secondary); }
-        .project-content { padding: 20px; }
-        .project-content h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
-        .project-content p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px; }
-        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-        .project-tag { background: var(--bg-secondary); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; color: var(--text-muted); }
-        .project-links { display: flex; gap: 12px; flex-wrap: wrap; }
-        .project-links a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
-        .project-links a:hover { text-decoration: underline; }
+        .exp-project {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--accent);
+        }
+        .exp-project:last-child { margin-bottom: 0; }
+        .exp-project-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+        .exp-project-name { font-weight: 600; font-size: 1rem; }
+        .exp-project-date { color: var(--text-muted); font-size: 0.85rem; }
+        .exp-project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+        .exp-project-tag {
+            background: var(--bg-primary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .exp-project-desc { color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px; }
 
         /* Open Source */
         .repo-list { display: flex; flex-direction: column; gap: 16px; }
@@ -237,16 +356,23 @@
 
         .loading { text-align: center; padding: 100px 20px; color: var(--text-muted); }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             header { padding: 80px 0 40px; }
             .header-content { flex-direction: column; align-items: center; text-align: center; }
+            .avatar { width: 140px; height: 140px; }
             .header-text .bio { margin-left: auto; margin-right: auto; }
             .social-links { justify-content: center; }
             section { padding: 40px 0; }
             .experience-header { flex-direction: column; }
-            .projects-grid { grid-template-columns: 1fr; }
             .top-bar { padding: 8px 16px; }
             .control-btn { padding: 6px 12px; font-size: 0.85rem; }
+
+            /* Timeline responsive */
+            .timeline::before { left: 8px; }
+            .timeline-item { flex-direction: column; gap: 8px; }
+            .timeline-date { width: auto; text-align: left; padding-left: 30px; }
+            .timeline-dot { left: 2px; top: 4px; }
+            .timeline-content { margin-left: 30px; }
         }
     </style>
 </head>
@@ -289,27 +415,26 @@
             twitter: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
             website: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
             star: '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>',
-            fork: '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-.878a2.25 2.25 0 111.5 0v.878a2.25 2.25 0 01-2.25 2.25h-1.5v2.128a2.251 2.251 0 11-1.5 0V8.5h-1.5A2.25 2.25 0 013 6.25v-.878a2.25 2.25 0 111.5 0zM5 3.25a.75.75 0 10-1.5 0 .75.75 0 001.5 0zm6.75.75a.75.75 0 100-1.5.75.75 0 000 1.5zm-3 8.75a.75.75 0 10-1.5 0 .75.75 0 001.5 0z"/></svg>'
+            fork: '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-.878a2.25 2.25 0 111.5 0v.878a2.25 2.25 0 01-2.25 2.25h-1.5v2.128a2.251 2.251 0 11-1.5 0V8.5h-1.5A2.25 2.25 0 013 6.25v-.878a2.25 2.25 0 111.5 0zM5 3.25a.75.75 0 10-1.5 0 .75.75 0 001.5 0zm6.75.75a.75.75 0 100-1.5.75.75 0 000 1.5zm-3 8.75a.75.75 0 10-1.5 0 .75.75 0 001.5 0z"/></svg>',
+            appStore: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.8 14.7l1.5-2.6c.1-.2.4-.2.5 0l1.5 2.6h3.4l-4.5-7.8c-.2-.4-.7-.4-.9 0l-1.9 3.3-1.9-3.3c-.2-.4-.7-.4-.9 0L1 14.7h3.4l1.5-2.6c.1-.2.4-.2.5 0l1.5 2.6h.9zm6.7-5.4l4.5 7.8h-3.4l-1.5-2.6c-.1-.2-.4-.2-.5 0l-1.5 2.6h-.9l3.4-5.8c.2-.4.7-.4.9 0l1.9 3.3-1.4 2.5h1.9l1-1.8-3-5.2c-.2-.4-.7-.4-.9 0l-1.9 3.3h-.9z"/></svg>',
+            playStore: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 9.99l-2.302 2.302-8.634-8.634z"/></svg>',
+            link: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
+            mobile: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',
+            web: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
         };
 
         let content = null;
 
-        // Detect browser language, fallback to English
         function detectLanguage() {
             const stored = localStorage.getItem('lang');
             if (stored) return stored;
-
             const browserLang = navigator.language || navigator.languages?.[0] || 'en';
-            // Check if browser language starts with 'tr' (e.g., 'tr', 'tr-TR')
             return browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
         }
 
-        // Detect browser theme preference
         function detectTheme() {
             const stored = localStorage.getItem('theme');
             if (stored) return stored;
-
-            // Check system preference
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 return 'dark';
             }
@@ -325,31 +450,80 @@
             return obj[currentLang] || obj['en'] || fallback;
         }
 
-        function renderExpProjects(projects, showLabel = true) {
+        function getAllProjects(experience) {
+            const projects = [];
+            experience.forEach(exp => {
+                if (exp.projects) {
+                    exp.projects.forEach(proj => {
+                        projects.push({
+                            ...proj,
+                            company: exp.company,
+                            companyUrl: exp.companyUrl
+                        });
+                    });
+                }
+            });
+            // Sort by startDate descending (newest first)
+            return projects.sort((a, b) => {
+                const dateA = a.startDate || '0000-00';
+                const dateB = b.startDate || '0000-00';
+                return dateB.localeCompare(dateA);
+            });
+        }
+
+        function renderTimeline(projects) {
+            return projects.map(proj => {
+                const platformLabel = {
+                    mobile: currentLang === 'tr' ? 'Mobil' : 'Mobile',
+                    web: 'Web',
+                    backend: 'Backend'
+                };
+
+                return `
+                    <div class="timeline-item">
+                        <div class="timeline-date">${t(proj.date)}</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <div class="timeline-title">${proj.url ? `<a href="${proj.url}" target="_blank">${t(proj.name)}</a>` : t(proj.name)}</div>
+                                    <div class="timeline-company">@ ${proj.companyUrl ? `<a href="${proj.companyUrl}" target="_blank" style="color: var(--text-muted); text-decoration: none;">${proj.company}</a>` : proj.company}</div>
+                                </div>
+                                ${proj.platform ? `<span class="timeline-platform ${proj.platform}">${icons[proj.platform] || ''} ${platformLabel[proj.platform] || proj.platform}</span>` : ''}
+                            </div>
+                            <div class="timeline-tags">
+                                ${proj.tags.map(tag => `<span class="timeline-tag">${tag}</span>`).join('')}
+                            </div>
+                            <p class="timeline-desc">${t(proj.description)}</p>
+                            ${(proj.appStore || proj.playStore || proj.url) ? `
+                                <div class="timeline-links">
+                                    ${proj.url ? `<a href="${proj.url}" target="_blank">${icons.link} Website</a>` : ''}
+                                    ${proj.appStore ? `<a href="${proj.appStore}" target="_blank">${icons.appStore} App Store</a>` : ''}
+                                    ${proj.playStore ? `<a href="${proj.playStore}" target="_blank">${icons.playStore} Play Store</a>` : ''}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderEduProjects(projects) {
             if (!projects || !projects.length) return '';
             const label = currentLang === 'tr' ? 'Projeler' : 'Projects';
             return `
                 <div class="exp-projects">
-                    ${showLabel ? `<div class="exp-projects-label">${label}</div>` : ''}
+                    <div class="exp-projects-label">${label}</div>
                     ${projects.map(proj => `
                         <div class="exp-project">
                             <div class="exp-project-header">
-                                <div class="exp-project-title">
-                                    <span class="exp-project-name">${proj.url ? `<a href="${proj.url}" target="_blank">${t(proj.name)}</a>` : t(proj.name)}</span>
-                                    ${proj.status ? `<span class="exp-project-status">${t(proj.status)}</span>` : ''}
-                                </div>
+                                <span class="exp-project-name">${t(proj.name)}</span>
                                 ${proj.date ? `<span class="exp-project-date">${t(proj.date)}</span>` : ''}
                             </div>
                             <div class="exp-project-tags">
                                 ${proj.tags.map(tag => `<span class="exp-project-tag">${tag}</span>`).join('')}
                             </div>
                             <p class="exp-project-desc">${t(proj.description)}</p>
-                            ${(proj.appStore || proj.playStore) ? `
-                                <div class="exp-project-links">
-                                    ${proj.appStore ? `<a href="${proj.appStore}" target="_blank">App Store</a>` : ''}
-                                    ${proj.playStore ? `<a href="${proj.playStore}" target="_blank">Play Store</a>` : ''}
-                                </div>
-                            ` : ''}
                         </div>
                     `).join('')}
                 </div>
@@ -361,6 +535,7 @@
 
             const { meta, skills, experience, education, projects, opensource } = content;
             const lang = content[currentLang] || content['en'];
+            const allProjects = getAllProjects(experience);
 
             document.title = `${meta.name} - ${lang.title}`;
 
@@ -384,7 +559,16 @@
                     </div>
                 </header>
 
+                ${lang.aboutContent ? `
                 <section id="about">
+                    <h2>${lang.aboutTitle}</h2>
+                    <div class="about-content">
+                        ${lang.aboutContent.map(p => `<p>${p}</p>`).join('')}
+                    </div>
+                </section>
+                ` : ''}
+
+                <section id="skills">
                     <h2>${lang.skillsTitle}</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 8px;">${lang.skillsDesc}</p>
                     <div class="skills">
@@ -407,10 +591,16 @@
                                         ${(Array.isArray(t(exp.summary)) ? t(exp.summary) : [t(exp.summary)]).map(item => `<li>${item}</li>`).join('')}
                                     </ul>
                                 </div>
-                            ` : (exp.description ? `<p class="experience-description">${t(exp.description)}</p>` : '')}
-                            ${renderExpProjects(exp.projects)}
+                            ` : ''}
                         </div>
                     `).join('')}
+                </section>
+
+                <section id="timeline">
+                    <h2>${lang.timelineTitle}</h2>
+                    <div class="timeline">
+                        ${renderTimeline(allProjects)}
+                    </div>
                 </section>
 
                 ${education && education.length ? `
@@ -424,35 +614,9 @@
                             <div class="education-degree">${t(edu.degree)}</div>
                             <div class="education-date">${edu.date}</div>
                             ${edu.description ? `<p class="education-description">${t(edu.description)}</p>` : ''}
-                            ${renderExpProjects(edu.projects, true)}
+                            ${renderEduProjects(edu.projects)}
                         </div>
                     `).join('')}
-                </section>
-                ` : ''}
-
-                ${projects && projects.length ? `
-                <section id="projects">
-                    <h2>${lang.projectsTitle}</h2>
-                    <div class="projects-grid">
-                        ${projects.map(proj => `
-                            <div class="project-card">
-                                <img src="${proj.image}" alt="${t(proj.name)}" class="project-image" onerror="this.style.background='${proj.gradient || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'}'">
-                                <div class="project-content">
-                                    <h3>${t(proj.name)}</h3>
-                                    <p>${t(proj.description)}</p>
-                                    <div class="project-tags">
-                                        ${proj.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-                                    </div>
-                                    <div class="project-links">
-                                        ${proj.links?.appStore ? `<a href="${proj.links.appStore}" target="_blank">App Store</a>` : ''}
-                                        ${proj.links?.playStore ? `<a href="${proj.links.playStore}" target="_blank">Play Store</a>` : ''}
-                                        ${proj.links?.github ? `<a href="${proj.links.github}" target="_blank">GitHub</a>` : ''}
-                                        ${proj.links?.website ? `<a href="${proj.links.website}" target="_blank">Website</a>` : ''}
-                                    </div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
                 </section>
                 ` : ''}
 
@@ -511,7 +675,6 @@
             document.getElementById('langLabel').textContent = currentLang === 'en' ? 'TR' : 'EN';
             document.documentElement.setAttribute('lang', currentLang);
 
-            // Listen for system theme changes (only if user hasn't set a preference)
             if (window.matchMedia) {
                 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
                     if (!localStorage.getItem('theme')) {
