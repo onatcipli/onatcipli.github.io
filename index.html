@@ -255,8 +255,31 @@
         };
 
         let content = null;
-        let currentLang = localStorage.getItem('lang') || 'en';
-        let currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Detect browser language, fallback to English
+        function detectLanguage() {
+            const stored = localStorage.getItem('lang');
+            if (stored) return stored;
+
+            const browserLang = navigator.language || navigator.languages?.[0] || 'en';
+            // Check if browser language starts with 'tr' (e.g., 'tr', 'tr-TR')
+            return browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
+        }
+
+        // Detect browser theme preference
+        function detectTheme() {
+            const stored = localStorage.getItem('theme');
+            if (stored) return stored;
+
+            // Check system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+            return 'light';
+        }
+
+        let currentLang = detectLanguage();
+        let currentTheme = detectTheme();
 
         function t(obj, fallback = '') {
             if (!obj) return fallback;
@@ -430,6 +453,17 @@
         async function init() {
             setTheme(currentTheme);
             document.getElementById('langLabel').textContent = currentLang === 'en' ? 'TR' : 'EN';
+            document.documentElement.setAttribute('lang', currentLang);
+
+            // Listen for system theme changes (only if user hasn't set a preference)
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                    if (!localStorage.getItem('theme')) {
+                        currentTheme = e.matches ? 'dark' : 'light';
+                        setTheme(currentTheme);
+                    }
+                });
+            }
 
             try {
                 const response = await fetch('content.json');
