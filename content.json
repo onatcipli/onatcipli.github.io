@@ -10,12 +10,12 @@
   },
   "en": {
     "title": "Senior Mobile Developer",
-    "bio": "Senior Mobile Developer with 8 years of experience building production apps for clients across Ireland, UK, Germany, Greece, and Turkey. I specialize in Flutter, React Native, and Native Android development, with deep expertise in video/audio streaming, DRM implementation, and scalable multi-flavor architectures.",
+    "bio": "Senior Mobile Developer with <strong>8 years of experience</strong> building production apps for clients across <strong>Ireland, UK, Germany, Greece, and Turkey</strong>. I specialize in Flutter, React Native, and Native Android development, with deep expertise in video/audio streaming, DRM implementation, and scalable multi-flavor architectures.",
     "aboutTitle": "About Me",
     "aboutContent": [
-      "I started my journey in 2018 during university, building games with Unity and exploring mobile development with early Flutter versions. After graduating from İzmir Ekonomi Üniversitesi with a Software Engineering degree, I joined LOGO Yazılım where I led the evaluation of cross-platform frameworks, ultimately championing Flutter adoption for the company.",
-      "In 2020, I joined Square1 and worked closely with the CTO on challenging projects for international clients. I've built everything from food delivery platforms managing 16 white-label apps from a single codebase, to Twitch-like streaming platforms, to children's media apps with complex DRM and offline playback.",
-      "Beyond client work, I'm an active open source contributor. I created the popular Flutter Rename package used by thousands of developers, and I've contributed to the Flutter framework itself—creating issues, fixing bugs, and writing tests that were merged into the official repository. My expertise spans Flutter, React Native, Ionic, Kotlin, and Swift, with a passion for clean architecture and building developer tools."
+      "I started my journey in <strong>2018</strong> during university, building games with Unity and exploring mobile development with early Flutter versions. After graduating from İzmir Ekonomi Üniversitesi with a Software Engineering degree, I joined LOGO Yazılım where I led the evaluation of cross-platform frameworks, ultimately <strong>championing Flutter adoption</strong> for the company.",
+      "In 2020, I joined <strong>Square1</strong> and collaborated closely with the CTO on challenging projects for international clients. I've built everything from food delivery platforms managing <strong>16 white-label apps</strong> from a single codebase, to <strong>Twitch-like streaming platforms</strong>, to children's media apps with complex <strong>DRM and offline playback</strong>.",
+      "Beyond client work, I'm an active open source contributor. I created the <strong>Flutter Rename CLI</strong> with <strong>1,280+ likes</strong> and <strong>29,000+ downloads</strong> on pub.dev, and I've contributed to the <strong>Flutter framework</strong> itself—creating issues, fixing bugs, and writing tests that were merged into the official repository."
     ],
     "skillsTitle": "Skills & Expertise",
     "skillsDesc": "Technologies and tools I work with",
@@ -28,12 +28,12 @@
   },
   "tr": {
     "title": "Kıdemli Mobil Geliştirici",
-    "bio": "İrlanda, İngiltere, Almanya, Yunanistan ve Türkiye'deki müşteriler için production uygulamalar geliştiren 8 yıllık deneyime sahip Kıdemli Mobil Geliştirici. Flutter, React Native ve Native Android geliştirme konularında uzmanım. Video/audio streaming, DRM implementasyonu ve ölçeklenebilir multi-flavor mimariler konularında derin tecrübem var.",
+    "bio": "<strong>İrlanda, İngiltere, Almanya, Yunanistan ve Türkiye</strong>'deki müşteriler için production uygulamalar geliştiren <strong>8 yıllık deneyime</strong> sahip Kıdemli Mobil Geliştirici. Flutter, React Native ve Native Android geliştirme konularında uzmanım. Video/audio streaming, DRM implementasyonu ve ölçeklenebilir multi-flavor mimariler konularında derin tecrübem var.",
     "aboutTitle": "Hakkımda",
     "aboutContent": [
-      "Yolculuğuma 2018'de üniversitede Unity ile oyunlar geliştirerek ve erken Flutter versiyonlarıyla mobil geliştirmeyi keşfederek başladım. İzmir Ekonomi Üniversitesi'nden Yazılım Mühendisliği diplomasıyla mezun olduktan sonra LOGO Yazılım'a katıldım ve cross-platform framework'lerin değerlendirmesini yönettim, sonuçta şirket için Flutter'ın benimsenmesini sağladım.",
-      "2020'de Square1'e katıldım ve CTO ile birlikte uluslararası müşteriler için zorlu projeler üzerinde çalıştım. Tek codebase'den 16 white-label uygulamayı yöneten yemek sipariş platformlarından, Twitch benzeri streaming platformlarına, karmaşık DRM ve offline playback içeren çocuk medya uygulamalarına kadar her şeyi geliştirdim.",
-      "Müşteri işlerinin ötesinde, aktif bir açık kaynak katkıcısıyım. Binlerce geliştirici tarafından kullanılan popüler Flutter Rename paketini oluşturdum ve Flutter framework'üne katkıda bulundum—issue'lar oluşturdum, buglar düzelttim ve resmi repository'e merge edilen testler yazdım. Uzmanlığım Flutter, React Native, Ionic, Kotlin ve Swift'i kapsıyor; clean architecture ve geliştirici araçları oluşturma konusunda tutkuluyum."
+      "Yolculuğuma <strong>2018</strong>'de üniversitede Unity ile oyunlar geliştirerek ve erken Flutter versiyonlarıyla mobil geliştirmeyi keşfederek başladım. İzmir Ekonomi Üniversitesi'nden Yazılım Mühendisliği diplomasıyla mezun olduktan sonra LOGO Yazılım'a katıldım ve cross-platform framework'lerin değerlendirmesini yönettim, sonuçta şirket için <strong>Flutter'ın benimsenmesini</strong> sağladım.",
+      "2020'de <strong>Square1</strong>'e katıldım ve CTO ile birlikte uluslararası müşteriler için zorlu projeler üzerinde çalıştım. Tek codebase'den <strong>16 white-label uygulamayı</strong> yöneten yemek sipariş platformlarından, <strong>Twitch benzeri streaming platformlarına</strong>, karmaşık <strong>DRM ve offline playback</strong> içeren çocuk medya uygulamalarına kadar her şeyi geliştirdim.",
+      "Müşteri işlerinin ötesinde, aktif bir açık kaynak katkıcısıyım. pub.dev'de <strong>1.280+ beğeni</strong> ve <strong>29.000+ indirme</strong> ile <strong>Flutter Rename CLI</strong>'ı oluşturdum ve <strong>Flutter framework</strong>'üne katkıda bulundum—issue'lar oluşturdum, buglar düzelttim ve resmi repository'e merge edilen testler yazdım."
     ],
     "skillsTitle": "Yetenekler ve Uzmanlık",
     "skillsDesc": "Çalıştığım teknolojiler ve araçlar",
@@ -106,15 +106,31 @@
         },
         {
           "name": {
-            "en": "Unity Games",
-            "tr": "Unity Oyunları"
+            "en": "Flutter Web Interactive Slides",
+            "tr": "Flutter Web İnteraktif Slaytlar"
           },
-          "date": "2016 - 2017",
+          "date": "2019",
+          "tags": ["Flutter", "Web"],
+          "platform": "web",
+          "youtube": "https://www.youtube.com/watch?v=YvNcvYKggx8",
+          "description": {
+            "en": "Built an interactive presentation/slides application using Flutter Web. Demonstrated Flutter's web capabilities for creating dynamic, animated presentations.",
+            "tr": "Flutter Web kullanarak interaktif sunum/slayt uygulaması geliştirdim. Dinamik, animasyonlu sunumlar oluşturmak için Flutter'ın web yeteneklerini gösterdim."
+          }
+        },
+        {
+          "name": "The Ozon",
+          "date": "2017",
           "tags": ["Unity", "C#"],
           "platform": "mobile",
+          "youtube": "https://www.youtube.com/watch?v=FbK-TfsalSE",
+          "type": {
+            "en": "University Game Project",
+            "tr": "Üniversite Oyun Projesi"
+          },
           "description": {
-            "en": "Developed 3 games using Unity game engine and C#",
-            "tr": "Unity oyun motoru ve C# ile 3 oyun geliştirdim"
+            "en": "First game developed during university using Unity game engine and C#. A complete game project showcasing game development fundamentals.",
+            "tr": "Üniversite sırasında Unity oyun motoru ve C# kullanarak geliştirilen ilk oyun. Oyun geliştirme temellerini sergileyen tam bir oyun projesi."
           }
         },
         {
@@ -134,6 +150,50 @@
     }
   ],
   "experience": [
+    {
+      "company": {
+        "en": "Open Source",
+        "tr": "Açık Kaynak"
+      },
+      "location": {
+        "en": "Personal Projects",
+        "tr": "Kişisel Projeler"
+      },
+      "date": {
+        "en": "2019 - Present",
+        "tr": "2019 - Günümüz"
+      },
+      "role": {
+        "en": "Creator & Maintainer",
+        "tr": "Yaratıcı & Sürdürücü"
+      },
+      "summary": {
+        "en": [
+          "Created and maintain popular open source tools used by the Flutter community",
+          "Active contributor to the Flutter framework with merged PRs"
+        ],
+        "tr": [
+          "Flutter topluluğu tarafından kullanılan popüler açık kaynak araçlar oluşturdum ve sürdürüyorum",
+          "Merge edilmiş PR'larla Flutter framework'üne aktif katkıcı"
+        ]
+      },
+      "projects": [
+        {
+          "name": "Flutter Rename CLI",
+          "order": 0,
+          "date": { "en": "2019 - Present", "tr": "2019 - Günümüz" },
+          "startDate": "2019-01",
+          "url": "https://github.com/onatcipli/rename",
+          "pubdev": "https://pub.dev/packages/rename",
+          "tags": ["Dart", "CLI", "pub.dev"],
+          "platform": "backend",
+          "description": {
+            "en": "Created a CLI tool for renaming Flutter apps with <strong>1,280+ likes</strong> and <strong>29,000+ downloads</strong> on pub.dev. Supports <strong>6 platforms</strong>: iOS, Android, macOS, Linux, Windows, and Web. Used by thousands of Flutter developers worldwide for managing app names and bundle IDs.",
+            "tr": "pub.dev'de <strong>1.280+ beğeni</strong> ve <strong>29.000+ indirme</strong> ile Flutter uygulama yeniden adlandırma CLI aracı oluşturdum. <strong>6 platform</strong> destekler: iOS, Android, macOS, Linux, Windows ve Web. Dünya çapında binlerce Flutter geliştiricisi tarafından uygulama adları ve bundle ID'leri yönetmek için kullanılıyor."
+          }
+        }
+      ]
+    },
     {
       "company": "Square1",
       "companyUrl": "https://square1.io",
@@ -174,8 +234,8 @@
           "tags": ["Flutter", "Firebase", "CLI"],
           "platform": "mobile",
           "description": {
-            "en": "Food delivery platform for Ireland and UK market. Managed 16 different white-label apps from single codebase using flavor-based architecture. Full technical responsibility of mobile side. Developed CLI tool for automated app generation from JSON configuration.",
-            "tr": "İrlanda ve İngiltere pazarı için yemek sipariş platformu. Flavor-based mimari ile tek codebase'den 16 farklı white-label uygulamayı yönettim. Mobil tarafın tüm teknik sorumluluğu. JSON konfigürasyonundan otomatik uygulama üretimi için CLI tool geliştirdim."
+            "en": "Food delivery platform for Ireland and UK market. Managed <strong>16 different white-label apps</strong> from a <strong>single codebase</strong> using flavor-based architecture. <strong>Full technical ownership</strong> of mobile side. Built custom CLI tool for automated app generation from JSON configuration.",
+            "tr": "İrlanda ve İngiltere pazarı için yemek sipariş platformu. Flavor-based mimari ile <strong>tek codebase'den 16 farklı white-label uygulamayı</strong> yönettim. Mobil tarafın <strong>tam teknik sorumluluğu</strong>. JSON konfigürasyonundan otomatik uygulama üretimi için özel CLI tool geliştirdim."
           }
         },
         {
@@ -187,8 +247,8 @@
           "tags": ["Flutter", "Firebase", "Streaming"],
           "platform": "mobile",
           "description": {
-            "en": "Twitch-like live streaming and chat platform for TV shows and sports events. Built video/audio streaming infrastructure and real-time chat system. Implemented push notification systems and live event synchronization.",
-            "tr": "TV programları ve spor etkinlikleri için Twitch benzeri canlı yayın ve chat platformu. Video/audio streaming altyapısı ve real-time chat sistemi kurdum. Push notification ve canlı etkinlik senkronizasyonu implemente ettim."
+            "en": "<strong>Twitch-like live streaming</strong> and chat platform for German TV shows and sports events. Built <strong>video/audio streaming infrastructure</strong> and <strong>real-time chat system</strong>. Implemented push notification systems and live event synchronization.",
+            "tr": "Alman TV programları ve spor etkinlikleri için <strong>Twitch benzeri canlı yayın</strong> ve chat platformu. <strong>Video/audio streaming altyapısı</strong> ve <strong>real-time chat sistemi</strong> kurdum. Push notification ve canlı etkinlik senkronizasyonu implemente ettim."
           }
         },
         {
@@ -197,11 +257,12 @@
           "date": { "en": "Jun 2023 - Nov 2024", "tr": "Haz 2023 - Kas 2024" },
           "startDate": "2023-06",
           "endDate": "2024-11",
+          "appStore": "https://apps.apple.com/us/app/kids-radio/id6464392731",
           "tags": ["Flutter", "DRM", "Streaming", "Offline"],
           "platform": "mobile",
           "description": {
-            "en": "Children's media platform for Greek client. YouTube + Spotify hybrid concept with video, audiobooks and radio content. Implemented background playback, offline download with DRM protection. Built Abstract Player pattern for unified playback across all media types with Spotify-style queue system.",
-            "tr": "Yunan müşteri için çocuklara yönelik medya platformu. Video, audiobook ve radyo içerikli YouTube + Spotify karışımı konsept. Background playback, DRM korumalı offline indirme implemente ettim. Tüm medya tipleri için Spotify tarzı queue sistemi ile Abstract Player pattern kurdum."
+            "en": "Children's media platform for Greek client. <strong>YouTube + Spotify hybrid</strong> concept with video, audiobooks and radio content. Implemented <strong>background playback</strong>, <strong>offline download with DRM protection</strong>. Built <strong>Abstract Player pattern</strong> for unified playback across all media types with Spotify-style queue system.",
+            "tr": "Yunan müşteri için çocuklara yönelik medya platformu. Video, audiobook ve radyo içerikli <strong>YouTube + Spotify karışımı</strong> konsept. <strong>Background playback</strong>, <strong>DRM korumalı offline indirme</strong> implemente ettim. Tüm medya tipleri için Spotify tarzı queue sistemi ile <strong>Abstract Player pattern</strong> kurdum."
           }
         },
         {
@@ -225,6 +286,9 @@
           "date": { "en": "Feb 2021 - Jun 2021", "tr": "Şub 2021 - Haz 2021" },
           "startDate": "2021-02",
           "endDate": "2021-06",
+          "url": "https://www.myhome.ie/",
+          "appStore": "https://apps.apple.com/ie/app/myhome-ie/id368923847",
+          "playStore": "https://play.google.com/store/apps/details?id=ie.myhome.android.app",
           "tags": ["Kotlin", "Android Native"],
           "platform": "mobile",
           "description": {
@@ -238,6 +302,8 @@
           "date": { "en": "Sep 2021 - Mar 2022", "tr": "Eyl 2021 - Mar 2022" },
           "startDate": "2021-09",
           "endDate": "2022-03",
+          "appStore": "https://apps.apple.com/us/app/the-irish-times-epaper/id671732877",
+          "playStore": "https://play.google.com/store/apps/details?id=ie.irishtimes.reader",
           "tags": ["React Native"],
           "platform": "mobile",
           "description": {
@@ -251,6 +317,8 @@
           "date": { "en": "Apr 2022 - Aug 2022", "tr": "Nis 2022 - Ağu 2022" },
           "startDate": "2022-04",
           "endDate": "2022-08",
+          "appStore": "https://apps.apple.com/us/app/the-business-post/id467117236",
+          "playStore": "https://play.google.com/store/apps/details?id=ie.businesspost.android",
           "tags": ["Flutter"],
           "platform": "mobile",
           "description": {
@@ -353,13 +421,14 @@
     {
       "name": "rename",
       "url": "https://github.com/onatcipli/rename",
+      "pubdev": "https://pub.dev/packages/rename",
       "description": {
-        "en": "A CLI tool to rename Flutter apps easily. Change app name, bundle ID, and package name for iOS, Android, macOS, Linux, Windows, and Web platforms with a single command. Used by thousands of Flutter developers worldwide.",
-        "tr": "Flutter uygulamalarını kolayca yeniden adlandırmak için CLI aracı. Tek komutla iOS, Android, macOS, Linux, Windows ve Web platformları için uygulama adı, bundle ID ve paket adını değiştirin. Dünya çapında binlerce Flutter geliştiricisi tarafından kullanılıyor."
+        "en": "Popular CLI tool for renaming Flutter apps with <strong>1,280+ likes</strong> and <strong>29,000+ downloads</strong> on pub.dev. Change app name, bundle ID, and package name for iOS, Android, macOS, Linux, Windows, and Web platforms with a single command.",
+        "tr": "pub.dev'de <strong>1.280+ beğeni</strong> ve <strong>29.000+ indirme</strong> ile popüler Flutter uygulama yeniden adlandırma CLI aracı. Tek komutla iOS, Android, macOS, Linux, Windows ve Web platformları için uygulama adı, bundle ID ve paket adını değiştirin."
       },
       "language": "Dart",
-      "stars": 500,
-      "forks": 50
+      "likes": 1280,
+      "downloads": 29000
     },
     {
       "name": "flutter/flutter",
