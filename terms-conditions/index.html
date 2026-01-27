@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms & Conditions - Onat Çipli">
+    <title>Terms & Conditions - Onat Çipli</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="theme-color" content="#667eea">
+    <link rel="canonical" href="https://onatcipli.dev/terms-conditions">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --border: #eaeaea;
+            --accent: #0066cc;
+            --accent-hover: #0052a3;
+        }
+
+        [data-theme="dark"] {
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --bg-primary: #18181b;
+            --bg-secondary: #27272a;
+            --border: #3f3f46;
+            --accent: #60a5fa;
+            --accent-hover: #93c5fd;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .top-bar {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .top-bar-left {
+            display: flex; align-items: center; gap: 12px;
+        }
+
+        .top-bar-left a {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--text-primary);
+            font-weight: 600; font-size: 0.95rem;
+        }
+
+        .top-bar-avatar {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            flex-shrink: 0;
+        }
+
+        .control-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex; align-items: center; gap: 8px;
+            transition: all 0.2s;
+        }
+        .control-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .control-btn svg { width: 18px; height: 18px; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+        }
+
+        .page-header {
+            padding: 40px 0 32px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .page-header .meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .content h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .content p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 16px;
+        }
+
+        .content ul li {
+            color: var(--text-secondary);
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        .content ul li::before {
+            content: "\2022";
+            position: absolute;
+            left: 8px;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .content a:hover { text-decoration: underline; }
+
+        .callout {
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+        }
+
+        .services-list {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+
+        .services-list p {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 700px) {
+            .container { padding: 70px 16px 40px; }
+            .page-header { padding: 24px 0; }
+            .page-header h1 { font-size: 1.5rem; }
+            .content h2 { font-size: 1.2rem; }
+            .top-bar { padding: 8px 16px; }
+            .control-btn { padding: 6px 12px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <a href="/">
+                <div class="top-bar-avatar"></div>
+                <span>Onat Çipli</span>
+            </a>
+        </div>
+        <button class="control-btn" onclick="toggleTheme()">
+            <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Terms &amp; Conditions</h1>
+            <div class="meta">Effective Date: May 18, 2023</div>
+        </div>
+
+        <div class="content">
+            <p>By downloading or using the app, these terms will automatically apply to you &ndash; you should make sure therefore that you read them carefully before using the app. You're not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You're not allowed to attempt to extract the source code of the app, and you also shouldn't try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to cipliDev.</p>
+
+            <p>cipliDev is committed to ensuring that the app is as useful and efficient as possible. For that reason, we reserve the right to make changes to the app or to charge for its services, at any time and for any reason. We will never charge you for the app or its services without making it very clear to you exactly what you're paying for.</p>
+
+            <p>The FutureMinds app stores and processes personal data that you have provided to us, to provide our Service. It's your responsibility to keep your phone and access to the app secure. We therefore recommend that you do not jailbreak or root your phone, which is the process of removing software restrictions and limitations imposed by the official operating system of your device. It could make your phone vulnerable to malware/viruses/malicious programs, compromise your phone's security features and it could mean that the FutureMinds app won't work properly or at all.</p>
+
+            <h2>Third-Party Services</h2>
+
+            <p>The app does use third-party services that declare their own Terms and Conditions.</p>
+
+            <div class="services-list">
+                <p>Third-party service providers used by the app:</p>
+                <ul>
+                    <li><a href="https://policies.google.com/terms" target="_blank">Google Play Services</a></li>
+                    <li><a href="https://developers.google.com/admob/terms" target="_blank">AdMob</a></li>
+                    <li><a href="https://firebase.google.com/terms/analytics" target="_blank">Google Analytics for Firebase</a></li>
+                    <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank">Firebase Crashlytics</a></li>
+                    <li><a href="https://www.facebook.com/legal/terms/plain_text_terms" target="_blank">Facebook</a></li>
+                </ul>
+            </div>
+
+            <h2>Availability &amp; Connectivity</h2>
+
+            <p>You should be aware that there are certain things that cipliDev will not take responsibility for. Certain functions of the app will require the app to have an active internet connection. The connection can be Wi-Fi or provided by your mobile network provider, but cipliDev cannot take responsibility for the app not working at full functionality if you don't have access to Wi-Fi, and you don't have any of your data allowance left.</p>
+
+            <p>If you're using the app outside of an area with Wi-Fi, you should remember that the terms of the agreement with your mobile network provider will still apply. As a result, you may be charged by your mobile provider for the cost of data for the duration of the connection while accessing the app, or other third-party charges. In using the app, you're accepting responsibility for any such charges, including roaming data charges if you use the app outside of your home territory (i.e. region or country) without turning off data roaming. If you are not the bill payer for the device on which you're using the app, please be aware that we assume that you have received permission from the bill payer for using the app.</p>
+
+            <h2>Responsibility &amp; Liability</h2>
+
+            <p>Along the same lines, cipliDev cannot always take responsibility for the way you use the app i.e. You need to make sure that your device stays charged &ndash; if it runs out of battery and you can't turn it on to avail the Service, cipliDev cannot accept responsibility.</p>
+
+            <p>With respect to cipliDev's responsibility for your use of the app, when you're using the app, it's important to bear in mind that although we endeavor to ensure that it is updated and correct at all times, we do rely on third parties to provide information to us so that we can make it available to you. cipliDev accepts no liability for any loss, direct or indirect, you experience as a result of relying wholly on this functionality of the app.</p>
+
+            <h2>Updates &amp; Termination</h2>
+
+            <p>At some point, we may wish to update the app. The app is currently available on Android &amp; iOS &ndash; the requirements for both systems (and for any additional systems we decide to extend the availability of the app to) may change, and you'll need to download the updates if you want to keep using the app. cipliDev does not promise that it will always update the app so that it is relevant to you and/or works with the Android &amp; iOS version that you have installed on your device. However, you promise to always accept updates to the application when offered to you. We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the app, and (if needed) delete it from your device.</p>
+
+            <h2>Changes to This Terms and Conditions</h2>
+
+            <p>We may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Terms and Conditions on this page.</p>
+
+            <div class="callout">
+                <p>These terms and conditions are effective as of <strong>May 18, 2023</strong>.</p>
+            </div>
+
+            <h2>Contact Us</h2>
+
+            <p>If you have any questions or suggestions about our Terms and Conditions, do not hesitate to contact us at <a href="mailto:info@onatcipli.dev">info@onatcipli.dev</a>.</p>
+        </div>
+    </div>
+
+    <footer>
+        <a href="/">&larr; Back to Portfolio</a> &middot; <a href="/privacy-policy">Privacy Policy</a>
+        <p style="margin-top: 8px;">&copy; 2025 Onat Çipli. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function detectTheme() {
+            const stored = localStorage.getItem('theme');
+            if (stored) return stored;
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+            return 'light';
+        }
+
+        let currentTheme = detectTheme();
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            document.getElementById('sunIcon').style.display = theme === 'dark' ? 'none' : 'block';
+            document.getElementById('moonIcon').style.display = theme === 'dark' ? 'block' : 'none';
+        }
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', currentTheme);
+            setTheme(currentTheme);
+        }
+
+        setTheme(currentTheme);
+    </script>
+</body>
+</html>
